@@ -1,0 +1,1107 @@
+<html lang="pt-BR" ng-app="direto-dos-trens" ng-csp="no-inline-style" class="ng-scope">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport">
+    <title>Direto dos Trens - Linha 1-Azul</title>
+    <base href="/">
+    <link href="manifest.json" rel="manifest">
+    <style>
+        .ng-cloak,
+        .ng-hide:not(.ng-hide-animate),
+        .x-ng-cloak,
+        [data-ng-cloak],
+        [ng-cloak],
+        [ng\:cloak],
+        [x-ng-cloak] {
+            display: none!important
+        }
+
+        ng\:form {
+            display: block
+        }
+
+        .ng-animate-shim {
+            visibility: hidden
+        }
+
+        .ng-anchor {
+            position: absolute
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/angular-loading-bar@0.9.0/build/loading-bar.min.css" rel="stylesheet" crossorigin="anonymous"
+        integrity="sha384-IFP6vka+fjqV67FHbvXsnHJU//46BVbIXSMxYlI1ELfnbjvffQMr6T3v16KHAM2i">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://lh3.googleusercontent.com/9gPmC7VGXU7Jh7quRCrM6GMSir81QjDLDr8E0zalL_JE79yij4RDr1oxa3NUJRlIhTmQNTQA8dtU3J5f104dJPwsavBtbg"
+        rel="apple-touch-icon" crossorigin="anonymous">
+    <meta content="César de Tassis Filho" name="author">
+    <meta content="Histórico de alterações/incidentes reportados referentes à Linha 1-Azul." name="description">
+    <meta content="CPTM,Direto da CPTM,Metrô,Direto do Metrô,ViaQuatro,ViaMobilidade,São Paulo,SP,Trem,Trens,Status,Linha,Linhas,Circulação,Situação,Incidentes,Histórico,Notificações,Alterações,Agora"
+        name="keywords">
+    <meta content="@DiretoDosTrens" name="telegram:channel">
+    <meta content="@CTF" name="twitter:creator">
+    <meta content="@DiretoDosTrens" name="twitter:site">
+    <meta content="Histórico de alterações/incidentes reportados referentes à Linha 1-Azul." property="og:description">
+    <meta content="https://lh3.googleusercontent.com/9gPmC7VGXU7Jh7quRCrM6GMSir81QjDLDr8E0zalL_JE79yij4RDr1oxa3NUJRlIhTmQNTQA8dtU3J5f104dJPwsavBtbg"
+        property="og:image">
+    <meta content="pt-BR" property="og:locale">
+    <meta content="Direto dos Trens - Linha 1-Azul" property="og:title">
+    <meta content="website" property="og:type">
+    <link rel="preload" href="https://adservice.google.com.br/adsid/integrator.js?domain=www.diretodostrens.com.br" as="script">
+    <script src="https://www.googletagservices.com/activeview/js/current/osd.js?cb=%2Fr20100101"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/linkid.js"></script>
+    <script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-3260663032123586.js"></script>
+    <script type="text/javascript" src="https://adservice.google.com.br/adsid/integrator.js?domain=www.diretodostrens.com.br"></script>
+    <link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.diretodostrens.com.br" as="script">
+    <script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.diretodostrens.com.br"></script>
+    <link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20190624/r20190131/show_ads_impl.js" as="script">
+</head>
+
+<body class="bg-dark ng-scope" ng-controller="main">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-112546713-1" async=""></script>
+    <script>function gtag() { dataLayer.push(arguments) } window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("set", { anonymize_ip: !0, link_attribution: !0, linker: { accept_incoming: !0 } }), gtag("config", "UA-112546713-1")</script>
+    <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-3260663032123586", enable_page_level_ads: !0 })</script>
+    <header>
+        <div class="collapse" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Sobre</h4>
+                        <p class="text-white text-justify">
+                            <b>Bem vindo(a) ao Direto dos Trens!</b> Informações em tempo real, histórico de incidentes e notificações
+                            automáticas de alterações ocorridas nas linhas do Metrô e da CPTM.</p>
+                        <p class="text-white text-justify">O Direto dos Trens foi desenvolvido com intuito de colaborar com a mobilidade urbana na cidade de
+                            São Paulo, região metropolitana e/ou municípios atendidos pelas linhas da
+                            <u>Companhia do Metropolitano de São Paulo | Metrô</u>, da
+                            <u>Companhia Paulista de Trens Metropolitanos | CPTM</u> e também pelas concessionárias
+                            <u>ViaQuatro</u> e
+                            <u>ViaMobilidade</u>.
+                            <b>(*)</b>
+                        </p>
+                        <p class="text-white text-justify">
+                            <b>(*)</b> O Direto dos Trens não possui qualquer relação com as companhias ou com as concessionárias
+                            citadas.
+                        </p>
+                        <h4 class="text-white">Tecnologia</h4>
+                        <p class="text-white text-justify">Este site envia notificações
+                            <i>push</i> para navegadores web compatíveis (Chrome 50+, EdgeHTML 17+, Firefox 44+, Opera 42+ e
+                            <a class="text-muted" href="https://caniuse.com/#feat=push-api">outros</a>).</p>
+                        <span ng-show="token" class="ng-hide">
+                            <p class="text-white text-justify">Clique nos botões
+                                <i class="material-icons" style="font-size:1rem">notifications_active</i>/
+                                <i class="material-icons" style="font-size:1rem">notifications_off</i> para configurar de quais linhas você quer receber notificações automáticas.</p>
+                            <p class="text-white text-justify">Se você está tendo problemas com as notificações
+                                <a class="text-muted" href="/?reset">clique aqui</a> para restaurar todas as configurações.</p>
+                        </span>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contato</h4>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="text-muted" href="https://telegram.me/DiretoDosTrens">Siga no Telegram</a>
+                            </li>
+                            <li>
+                                <a class="text-muted" href="https://twitter.com/DiretoDosTrens">Siga no Twitter</a>
+                            </li>
+                            <li>
+                                <a class="text-muted" ng-href="mailto:contato@diretodostrens.com.br" href="mailto:contato@diretodostrens.com.br">Mande um E-mail</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+                <a class="navbar-brand d-flex align-items-center" href="/" ng-click="scrollToTop()">
+                    <strong>Direto dos Trens</strong>
+                </a>
+                <button class="navbar-toggler" data-target="#navbarHeader" data-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main role="main">
+        <!-- ngIf: !loaded -->
+        <!-- ngIf: status -->
+        <!-- ngIf: id -->
+        <!-- ngIf: statusCodigo -->
+        <div class="container ng-scope" ng-if="statusCodigo" style="">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col" class="text-center ng-binding" colspan="3">Linha 1-Azul</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Data da Ocorrência</th>
+                                    <th scope="col">Situação</th>
+                                    <th scope="col">Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5711793527717888">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5711793527717888" class="ng-binding" href="/?id=5711793527717888">01/07/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="6314171549351936">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=6314171549351936" class="ng-binding" href="/?id=6314171549351936">01/07/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5191380930396160">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5191380930396160" class="ng-binding" href="/?id=5191380930396160">30/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5088478681366528" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5088478681366528" class="ng-binding" href="/?id=5088478681366528">30/06/2019 01:03</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="6261804489506816" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=6261804489506816" class="ng-binding" href="/?id=6261804489506816">29/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5728440552521728">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5728440552521728" class="ng-binding" href="/?id=5728440552521728">29/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5167159328112640" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5167159328112640" class="ng-binding" href="/?id=5167159328112640">28/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5678371233071104" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5678371233071104" class="ng-binding" href="/?id=5678371233071104">28/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="4893542921011200" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=4893542921011200" class="ng-binding" href="/?id=4893542921011200">27/06/2019 05:21</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5098426698039296" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5098426698039296" class="ng-binding" href="/?id=5098426698039296">27/06/2019 05:04</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Falta de energia elétrica na estação SÃO BENTO, os trens estão circulando com
+                                        velocidade reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5730109281533952" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5730109281533952" class="ng-binding" href="/?id=5730109281533952">27/06/2019 04:48</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Falta de energia elétrica entre as estações JABAQUARA e TUCURUVÍ, os trens estão
+                                        circulando com velocidade reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5161629624827904" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5161629624827904" class="ng-binding" href="/?id=5161629624827904">27/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5158773538684928" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5158773538684928" class="ng-binding" href="/?id=5158773538684928">27/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5084129691435008" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5084129691435008" class="ng-binding" href="/?id=5084129691435008">26/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5656924380987392" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5656924380987392" class="ng-binding" href="/?id=5656924380987392">26/06/2019 00:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5735598383955968" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5735598383955968" class="ng-binding" href="/?id=5735598383955968">25/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5695258373390336" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5695258373390336" class="ng-binding" href="/?id=5695258373390336">25/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5125222395019264" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5125222395019264" class="ng-binding" href="/?id=5125222395019264">24/06/2019 18:53</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5671926768861184" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5671926768861184" class="ng-binding" href="/?id=5671926768861184">24/06/2019 18:49</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Falha no trem na estação SANTA CRUZ, os trens estão circulando com velocidade
+                                        reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5148420385800192" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5148420385800192" class="ng-binding" href="/?id=5148420385800192">24/06/2019 08:16</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5170426040811520" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5170426040811520" class="ng-binding" href="/?id=5170426040811520">24/06/2019 08:10</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Os trens da Linha 1 - Azul estão circulando com velocidade reduzida devido a restrições
+                                        operacionais.
+                                    </td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5669765125242880" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5669765125242880" class="ng-binding" href="/?id=5669765125242880">24/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="6199022335295488" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=6199022335295488" class="ng-binding" href="/?id=6199022335295488">24/06/2019 00:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5725928789377024" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5725928789377024" class="ng-binding" href="/?id=5725928789377024">23/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5740628193312768" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5740628193312768" class="ng-binding" href="/?id=5740628193312768">23/06/2019 01:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5129939275743232" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5129939275743232" class="ng-binding" href="/?id=5129939275743232">22/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5695102412390400" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5695102412390400" class="ng-binding" href="/?id=5695102412390400">22/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5647726024851456" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5647726024851456" class="ng-binding" href="/?id=5647726024851456">21/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5641812739883008">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5641812739883008" class="ng-binding" href="/?id=5641812739883008">21/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="6270865058562048" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=6270865058562048" class="ng-binding" href="/?id=6270865058562048">20/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5731784452997120" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5731784452997120" class="ng-binding" href="/?id=5731784452997120">20/06/2019 00:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5132572493348864" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5132572493348864" class="ng-binding" href="/?id=5132572493348864">19/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5675964038119424" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5675964038119424" class="ng-binding" href="/?id=5675964038119424">19/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5670478626684928" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5670478626684928" class="ng-binding" href="/?id=5670478626684928">18/06/2019 13:08</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5655518584504320" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5655518584504320" class="ng-binding" href="/?id=5655518584504320">18/06/2019 12:24</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Interferência na via na estação JABAQUARA, os trens estão circulando com velocidade
+                                        reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5748782578794496">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5748782578794496" class="ng-binding" href="/?id=5748782578794496">18/06/2019 11:06</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5676352250314752" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5676352250314752" class="ng-binding" href="/?id=5676352250314752">18/06/2019 10:52</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Interferência na via na estação JABAQUARA, os trens estão circulando com velocidade
+                                        reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="4805539657678848" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=4805539657678848" class="ng-binding" href="/?id=4805539657678848">18/06/2019 07:21</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5108820518895616" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5108820518895616" class="ng-binding" href="/?id=5108820518895616">18/06/2019 05:45</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Interferência na via na estação JABAQUARA, os trens estão circulando com velocidade
+                                        reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5689778397773824" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5689778397773824" class="ng-binding" href="/?id=5689778397773824">18/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5087014634389504">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5087014634389504" class="ng-binding" href="/?id=5087014634389504">18/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5121794126118912" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5121794126118912" class="ng-binding" href="/?id=5121794126118912">17/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5076566992224256" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5076566992224256" class="ng-binding" href="/?id=5076566992224256">17/06/2019 00:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5106346886168576">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5106346886168576" class="ng-binding" href="/?id=5106346886168576">16/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5729991828439040" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5729991828439040" class="ng-binding" href="/?id=5729991828439040">16/06/2019 01:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5121608515584000" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5121608515584000" class="ng-binding" href="/?id=5121608515584000">15/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5205895638155264" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5205895638155264" class="ng-binding" href="/?id=5205895638155264">15/06/2019 00:00</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="6311912597880832" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=6311912597880832" class="ng-binding" href="/?id=6311912597880832">14/06/2019 08:51</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Parcial</td>
+                                    <td class="ng-binding">Circulação de trens no trecho de Saúde a Luz.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5725177438535680" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5725177438535680" class="ng-binding" href="/?id=5725177438535680">14/06/2019 08:45</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Parcial</td>
+                                    <td class="ng-binding">Os trens estão circulando entre as estações Saúde e Luz.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5679218750914560" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5679218750914560" class="ng-binding" href="/?id=5679218750914560">14/06/2019 06:00</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Parcial</td>
+                                    <td class="ng-binding">Circulação de trens no trecho de Ana Rosa a Luz.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5744646256852992" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5744646256852992" class="ng-binding" href="/?id=5744646256852992">14/06/2019 05:58</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-danger" id="5768033574322176" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5768033574322176" class="ng-binding" href="/?id=5768033574322176">14/06/2019 04:54</a>
+                                    </td>
+                                    <td class="ng-binding">Paralisada</td>
+                                    <td class="ng-binding">Devido à greve dos Metroviários a circulação de trens está paralisada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5206314519101440" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5206314519101440" class="ng-binding" href="/?id=5206314519101440">14/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5769264472522752" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5769264472522752" class="ng-binding" href="/?id=5769264472522752">14/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5734704628105216" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5734704628105216" class="ng-binding" href="/?id=5734704628105216">13/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="6211679805243392" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=6211679805243392" class="ng-binding" href="/?id=6211679805243392">13/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5164306865848320" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5164306865848320" class="ng-binding" href="/?id=5164306865848320">12/06/2019 15:08</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5136750355677184" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5136750355677184" class="ng-binding" href="/?id=5136750355677184">12/06/2019 15:06</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Falha no trem na estação VERGUEIRO, os trens estão circulando com velocidade
+                                        reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5721195815108608" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5721195815108608" class="ng-binding" href="/?id=5721195815108608">12/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5634399089459200" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5634399089459200" class="ng-binding" href="/?id=5634399089459200">12/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5176519471136768" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5176519471136768" class="ng-binding" href="/?id=5176519471136768">11/06/2019 23:30</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="4810937626263552" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=4810937626263552" class="ng-binding" href="/?id=4810937626263552">11/06/2019 23:26</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Presença de usuário na via na estação PORTUGUESA - TIETÊ, os trens estão circulando
+                                        com velocidade reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5675707682258944" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5675707682258944" class="ng-binding" href="/?id=5675707682258944">11/06/2019 17:32</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5711729627496448" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5711729627496448" class="ng-binding" href="/?id=5711729627496448">11/06/2019 17:24</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Falha no trem na estação VERGUEIRO, os trens estão circulando com velocidade
+                                        reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5104862236770304" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5104862236770304" class="ng-binding" href="/?id=5104862236770304">11/06/2019 12:34</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5185532929769472" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5185532929769472" class="ng-binding" href="/?id=5185532929769472">11/06/2019 10:28</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Interferência na via na estação ANA ROSA, os trens estão circulando com velocidade
+                                        reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5729480135933952" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5729480135933952" class="ng-binding" href="/?id=5729480135933952">11/06/2019 10:18</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5095504362864640" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5095504362864640" class="ng-binding" href="/?id=5095504362864640">11/06/2019 07:51</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Interferência na via na estação ANA ROSA, os trens estão circulando com velocidade
+                                        reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5748482883190784" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5748482883190784" class="ng-binding" href="/?id=5748482883190784">11/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5130479166554112" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5130479166554112" class="ng-binding" href="/?id=5130479166554112">11/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5200418334310400" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5200418334310400" class="ng-binding" href="/?id=5200418334310400">10/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5172900290101248" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5172900290101248" class="ng-binding" href="/?id=5172900290101248">10/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5710592346161152" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5710592346161152" class="ng-binding" href="/?id=5710592346161152">09/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="6285659677392896" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=6285659677392896" class="ng-binding" href="/?id=6285659677392896">09/06/2019 01:03</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5182782338760704" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5182782338760704" class="ng-binding" href="/?id=5182782338760704">08/06/2019 12:26</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="4853108433747968" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=4853108433747968" class="ng-binding" href="/?id=4853108433747968">08/06/2019 12:22</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Falha no trem na estação PRAÇA DA ÁRVORE, os trens estão circulando com velocidade
+                                        reduzida e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5087746657878016" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5087746657878016" class="ng-binding" href="/?id=5087746657878016">08/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5107986489933824" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5107986489933824" class="ng-binding" href="/?id=5107986489933824">08/06/2019 00:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5730239057494016" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5730239057494016" class="ng-binding" href="/?id=5730239057494016">07/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5759688721301504" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5759688721301504" class="ng-binding" href="/?id=5759688721301504">07/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5683959857938432" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5683959857938432" class="ng-binding" href="/?id=5683959857938432">06/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5194371100049408" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5194371100049408" class="ng-binding" href="/?id=5194371100049408">06/06/2019 00:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="6241032484159488" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=6241032484159488" class="ng-binding" href="/?id=6241032484159488">05/06/2019 13:21</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5743914233364480" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5743914233364480" class="ng-binding" href="/?id=5743914233364480">05/06/2019 13:15</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Os trens da Linha 1 - Azul estão circulando com velocidade reduzida devido a restrições
+                                        operacionais.
+                                    </td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5639260992438272" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5639260992438272" class="ng-binding" href="/?id=5639260992438272">05/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5651352466227200" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5651352466227200" class="ng-binding" href="/?id=5651352466227200">05/06/2019 00:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5102283444453376" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5102283444453376" class="ng-binding" href="/?id=5102283444453376">04/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5142003302006784" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5142003302006784" class="ng-binding" href="/?id=5142003302006784">04/06/2019 00:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5767097942540288" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5767097942540288" class="ng-binding" href="/?id=5767097942540288">03/06/2019 23:49</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5168511169069056" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5168511169069056" class="ng-binding" href="/?id=5168511169069056">03/06/2019 23:47</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Falha no trem na estação ARMÊNIA, os trens estão circulando com velocidade reduzida
+                                        e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5645268980596736">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5645268980596736" class="ng-binding" href="/?id=5645268980596736">03/06/2019 04:41</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5632743648002048" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5632743648002048" class="ng-binding" href="/?id=5632743648002048">03/06/2019 00:01</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5133093258133504" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5133093258133504" class="ng-binding" href="/?id=5133093258133504">02/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5754464229130240" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5754464229130240" class="ng-binding" href="/?id=5754464229130240">02/06/2019 01:03</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5200631350427648" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5200631350427648" class="ng-binding" href="/?id=5200631350427648">01/06/2019 18:37</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-warning" id="5185885788176384" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5185885788176384" class="ng-binding" href="/?id=5185885788176384">01/06/2019 18:31</a>
+                                    </td>
+                                    <td class="ng-binding">Velocidade Reduzida</td>
+                                    <td class="ng-binding">Devido à Falha no trem na estação SÉ, os trens estão circulando com velocidade reduzida
+                                        e maior tempo de parada.</td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-success" id="5135420794863616" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5135420794863616" class="ng-binding" href="/?id=5135420794863616">01/06/2019 04:42</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Normal</td>
+                                    <td class="ng-binding"></td>
+                                </tr>
+                                <!-- end ngRepeat: x in statusCodigo track by $index -->
+                                <tr ng-attr-class="table-{{ getClassFromSituacao(x.situacao) }}" ng-attr-id="{{ x.id }}" ng-repeat="x in statusCodigo track by $index"
+                                    class="table-info" id="5737219989962752" style="">
+                                    <td>
+                                        <a ng-click="scrollToTop()" ng-href="/?id=5737219989962752" class="ng-binding" href="/?id=5737219989962752">01/06/2019 00:02</a>
+                                    </td>
+                                    <td class="ng-binding">Operação Encerrada</td>
+                                    <td class="ng-binding">Fora do Horário de Operação</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end ngIf: statusCodigo -->
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="pb-2">
+                        <ins class="adsbygoogle" data-ad-client="ca-pub-3260663032123586" data-ad-format="auto" data-ad-slot="3758032751" style="display: block; height: 90px;"
+                            data-adsbygoogle-status="done">
+                            <ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:930px;background-color:transparent;">
+                                <ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:930px;background-color:transparent;">
+                                    <iframe width="930" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true"
+                                        scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}"
+                                        id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:930px;height:90px;"></iframe>
+                                </ins>
+                            </ins>
+                        </ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({})</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=default,fetch,IntersectionObserver,IntersectionObserverEntry"
+        crossorigin="anonymous"></script>
+    <ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;">
+        <ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;">
+            <ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;">
+                <iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true"
+                    onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}"
+                    id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;"></iframe>
+            </ins>
+        </ins>
+    </ins>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" crossorigin="anonymous" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" crossorigin="anonymous" integrity="sha384-TBbVc3SDLcWU5RloNEsoiDVvRK9iYkBNMm1OsAcOIVEASb7zzMWB0aMobj6CzKUw"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-animate.min.js" crossorigin="anonymous" integrity="sha384-fW6rd6cmshWjNCCQAlBGk+WRaq347vdLcmbxRB3zAxEHFlrssIJBhjjTXK8d7VhJ"></script>
+    <iframe id="google_osd_static_frame_6803253726574" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe>
+    <script src="https://cdn.jsdelivr.net/npm/angular-loading-bar@0.9.0/build/loading-bar.min.js" crossorigin="anonymous" integrity="sha384-L+hR/UIAPP0lzvzOP+ekF7ZAiIXJ0OPcduA22LAyGzSNcWtTTAWt158iCF3H6QDy"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.7.3/dist/localforage.min.js" crossorigin="anonymous" integrity="sha384-31UjyJDu6S/aKGkzPoHMFX4PFaiI+mpF/TuNwn4AARpE9SbJ4WEwkZFHPwP0BByl"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-performance.js"></script>
+    <script>firebase.initializeApp({ apiKey: "AIzaSyA-5GpqYIzZsBEkutzjzDcIzcK_LER2IKo", appId: "1:739011029096:web:c994d2f8cca0560f", authDomain: "direto-dos-trens.firebaseapp.com", databaseURL: "https://direto-dos-trens.firebaseio.com", messagingSenderId: "739011029096", projectId: "direto-dos-trens", storageBucket: "direto-dos-trens" }), firebase.performance()</script>
+    <script src="js/index.min.js"></script>
+</body>
+<iframe id="google_shimpl" style="display: none;"></iframe>
+<iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20190624/r20190131/zrt_lookup.html#"
+    data-ad-client="ca-pub-3260663032123586" style="display: none;"></iframe>
+
+</html>
