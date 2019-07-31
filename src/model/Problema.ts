@@ -28,6 +28,22 @@ const ProblemaSchema = new mongoose.Schema({
         required: true,
         default: data_local
     },
+    id_mobile: {
+        type: Number,
+        required: true,
+    },
+    longitude: {
+        type: Number,
+        required: true
+    },
+    latitude: {
+        type: Number,
+        required: true
+    },
+    anonimo: {
+        type: Boolean,
+        required: true,
+    },
     status: {
         type: Boolean,
         required: false,

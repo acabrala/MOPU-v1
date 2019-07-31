@@ -9,10 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Problema_1 = require("../model/Problema");
+const Incidentes_1 = require("../model/Incidentes");
 class ProblemaRepositoty {
     constructor() {
         this.createProblem = (problema) => __awaiter(this, void 0, void 0, function* () {
             // const { latitude, longitude } = incidente.location;
+            Incidentes_1.Incidentes.create(problema);
             return yield Problema_1.default.create(problema);
             // return await Problema.findOne({
             //     geometry: {

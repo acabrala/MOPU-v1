@@ -10,6 +10,7 @@ import { Avatar } from "../model/Avatar";
 import { Linhas } from "../model/Linha";
 import { IncidentesPadrao } from "../model/Incidente_padrao";
 import { ScoreUser } from "../model/ScoreUser";
+import { Incidentes } from "../model/Incidentes";
 
 export const sequelize = new Sequelize({
     dialect: "postgres",
@@ -21,4 +22,4 @@ export const sequelize = new Sequelize({
     password: "MKTz@zz1"
 });
 
-sequelize.addModels([ User, Routes, LinesRoutes, RoutesDay, RoutesDescriptions, Favoritos, Mobile, Avatar, Linhas, IncidentesPadrao, ScoreUser ]);
+sequelize.addModels([ User, Routes, LinesRoutes, RoutesDay, RoutesDescriptions, Favoritos, Mobile, Avatar, Linhas, IncidentesPadrao, ScoreUser, Incidentes ]);
