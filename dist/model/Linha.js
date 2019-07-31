@@ -20,7 +20,7 @@ __decorate([
 __decorate([
     sequelize_typescript_1.Column({ allowNull: false }),
     __metadata("design:type", String)
-], Linhas.prototype, "nome", void 0);
+], Linhas.prototype, "nome_linha", void 0);
 __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)

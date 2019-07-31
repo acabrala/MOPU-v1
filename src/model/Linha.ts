@@ -11,7 +11,7 @@ export class Linhas extends Model<Linhas> {
     id: number; 
 
     @Column({ allowNull: false })
-    nome: string;
+    nome_linha: string;
 
     @Column
     numero_linha: string; 

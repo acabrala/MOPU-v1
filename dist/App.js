@@ -40,6 +40,8 @@ const AvatarRepository_1 = require("./repository/AvatarRepository");
 const AvatarController_1 = require("./controllers/AvatarController");
 const socket_1 = require("./middleware/socket");
 const socketio = require("socket.io");
+const LinhasRepository_1 = require("./repository/LinhasRepository");
+const LinhasController_1 = require("./controllers/LinhasController");
 const changeStream = Problema_1.default.watch();
 changeStream.on('change', next => {
     console.log('alterou');
@@ -104,7 +106,8 @@ class App {
         const favoritosRepository = new FavoritosRepository_1.FavoritosRepository();
         const mobileRepository = new MobileRepository_1.MobileRepository();
         const avatarRepository = new AvatarRepository_1.AvatarRepository();
-        new Router_1.default(new AuthController_1.AuthController(userRepository), new UserController_1.UserController(userRepository), new EstacaoController_1.EstacaoController(estacaoRepository), new EstacaoAreaController_1.EstacaoAreaController(estacaoAreaRepository), new CalculateRouterController_1.CalculateRouterController(calculateRouterRepository, linhasTrilhosRepository), new RouterUserController_1.RouterUserController(routerRepository), new FavoritosController_1.FavoritosController(favoritosRepository), new ProblemaController_1.ProblemaController(problemaRepository), new MobileController_1.MobileController(mobileRepository), new AvatarController_1.AvatarController(avatarRepository))
+        const linhasRepository = new LinhasRepository_1.LinhasRepository();
+        new Router_1.default(new AuthController_1.AuthController(userRepository), new UserController_1.UserController(userRepository), new EstacaoController_1.EstacaoController(estacaoRepository), new EstacaoAreaController_1.EstacaoAreaController(estacaoAreaRepository), new CalculateRouterController_1.CalculateRouterController(calculateRouterRepository, linhasTrilhosRepository), new RouterUserController_1.RouterUserController(routerRepository), new FavoritosController_1.FavoritosController(favoritosRepository), new ProblemaController_1.ProblemaController(problemaRepository), new MobileController_1.MobileController(mobileRepository), new AvatarController_1.AvatarController(avatarRepository), new LinhasController_1.LinhasController(linhasRepository))
             .startWith(this.app);
     }
     initializeStrategies() {

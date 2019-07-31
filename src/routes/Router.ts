@@ -13,6 +13,7 @@ import { FavoritosController } from "../controllers/FavoritosController";
 import { ProblemaController } from "../controllers/ProblemaController";
 import { MobileController } from "../controllers/MobileController";
 import { AvatarController } from "../controllers/AvatarController";
+import { LinhasController } from "../controllers/LinhasController";
 
 export default class Router {
 
@@ -26,6 +27,7 @@ export default class Router {
     private problemaController: ProblemaController;
     private mobileController: MobileController;
     private avatarController: AvatarController;
+    private linhasController: LinhasController;
 
     private BASE_URL: string = "/api/v1";
     private AUTH_URL: string = this.BASE_URL + "/auth";
@@ -53,12 +55,13 @@ export default class Router {
     private GERAR_TERMINAL:string = this.BASE_URL + "/mobile";
     private ATUALIZAR_TERMINAL:string = this.BASE_URL + "/mobile/atualizar";
     private DESCER_AVATAR:string = this.BASE_URL + "/avatares";
+    private DESCER_LINHAS:string = this.BASE_URL + "/linhas"
 
     constructor(authController: AuthController, userController: UserController,
         estacaoController: EstacaoController, estacaoAreaController: EstacaoAreaController,
         calculateRouterController: CalculateRouterController, routerController: RouterUserController,
         favoritosController: FavoritosController, problemaController: ProblemaController, mobileController: MobileController,
-        avatarController: AvatarController) {
+        avatarController: AvatarController, linhasController: LinhasController) {
         this.authController = authController;
         this.userController = userController;
         this.estacaoController = estacaoController;
@@ -69,6 +72,7 @@ export default class Router {
         this.problemaController = problemaController;
         this.mobileController = mobileController;
         this.avatarController = avatarController
+        this.linhasController = linhasController;
     }
 
     public startWith(app) {
@@ -122,5 +126,8 @@ export default class Router {
  
         //Avatares
         app.route(this.DESCER_AVATAR).get(this.avatarController.todosAvatar)
+
+        //Linhas
+        app.route(this.DESCER_LINHAS).get(this.linhasController.consultarlinhas);
     }
 }

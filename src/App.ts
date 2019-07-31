@@ -28,8 +28,10 @@ import { MobileController } from './controllers/MobileController';
 import { MobileRepository } from './repository/MobileRepository';
 import { AvatarRepository } from './repository/AvatarRepository';
 import { AvatarController } from './controllers/AvatarController';
-import {SocketConnection} from './middleware/socket';
+import { SocketConnection } from './middleware/socket';
 import * as socketio from 'socket.io'
+import { LinhasRepository } from './repository/LinhasRepository';
+import { LinhasController } from './controllers/LinhasController';
 
 const changeStream = Problema.watch();
 changeStream.on('change', next => {
@@ -114,6 +116,7 @@ export class App {
         const favoritosRepository = new FavoritosRepository();
         const mobileRepository = new MobileRepository();
         const avatarRepository = new AvatarRepository();
+        const linhasRepository = new LinhasRepository()
 
         new Router(new AuthController(userRepository),
             new UserController(userRepository),
@@ -125,7 +128,8 @@ export class App {
             new FavoritosController(favoritosRepository),
             new ProblemaController(problemaRepository),
             new MobileController(mobileRepository),
-            new AvatarController(avatarRepository))
+            new AvatarController(avatarRepository),
+            new LinhasController(linhasRepository))
             .startWith(this.app);
     }
 
@@ -136,10 +140,10 @@ export class App {
     private listenSocket(): void {
         this.io.on('connection', (socket: any) => {
             console.log('conectado');
-            
+
             socket.on('sousa', ((msg) => {
                 console.log(msg);
-                
+
             }))
 
             socket.on('disconnect', () => {
