@@ -28,10 +28,10 @@ export class Incidentes extends Model<Incidentes> {
     @Column
     id_mobile: string;
 
-    @Column
+    @Column({type: DataType.FLOAT})
     longitude: number;
 
-    @Column
+    @Column({type: DataType.FLOAT})
     latitude: number;
 
     @Column

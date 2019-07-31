@@ -42,11 +42,11 @@ __decorate([
     __metadata("design:type", String)
 ], Incidentes.prototype, "id_mobile", void 0);
 __decorate([
-    sequelize_typescript_1.Column,
+    sequelize_typescript_1.Column({ type: sequelize_typescript_1.DataType.FLOAT }),
     __metadata("design:type", Number)
 ], Incidentes.prototype, "longitude", void 0);
 __decorate([
-    sequelize_typescript_1.Column,
+    sequelize_typescript_1.Column({ type: sequelize_typescript_1.DataType.FLOAT }),
     __metadata("design:type", Number)
 ], Incidentes.prototype, "latitude", void 0);
 __decorate([
