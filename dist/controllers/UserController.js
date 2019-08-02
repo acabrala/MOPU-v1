@@ -14,6 +14,11 @@ class UserController {
     constructor(userRepository) {
         this.createUser = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
+                const isUSer = yield this.userRepository.getUserByEmail(req.body);
+                if (isUSer) {
+                    console.log('deu aqui');
+                    return res.status(229).json(new Response_1.Response(false, "Email já está sendo utlizado.", false));
+                }
                 const user = yield User_1.User.create(req.body);
                 res.status(200).json(new Response_1.Response(false, "Usuário criado com sucesso.", user));
             }

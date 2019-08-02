@@ -14,6 +14,13 @@ export class UserController {
 
     createUser = async (req, res) => {
         try {
+            
+            const isUSer = await this.userRepository.getUserByEmail(req.body)
+            
+            if(isUSer){
+                console.log('deu aqui');
+                return res.status(229).json(new Response(false, "Email já está sendo utlizado.", false))
+            }
             const user = await User.create(req.body);
             res.status(200).json(new Response(false, "Usuário criado com sucesso.", user));
         } catch (e) {
