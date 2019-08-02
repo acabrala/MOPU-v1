@@ -14,10 +14,10 @@ export class UserController {
 
     createUser = async (req, res) => {
         try {
-            
+
             const isUSer = await this.userRepository.getUserByEmail(req.body)
-            
-            if(isUSer){
+
+            if (isUSer) {
                 console.log('deu aqui');
                 return res.status(229).json(new Response(false, "Email já está sendo utlizado.", false))
             }
@@ -102,6 +102,7 @@ export class UserController {
 
             if (!user) {
                 return res.status(227).json(new Response(true, "Usuário não localizado em nosso banco de dados.", null));
+
             }
 
             res.status(201).json(new Response(false, "Usuario atualizado com sucesso.", user));
