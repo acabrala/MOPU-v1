@@ -28,12 +28,17 @@ import { MobileController } from './controllers/MobileController';
 import { MobileRepository } from './repository/MobileRepository';
 import { AvatarRepository } from './repository/AvatarRepository';
 import { AvatarController } from './controllers/AvatarController';
-import { SocketConnection } from './middleware/socket';
+import {SocketConnection} from './middleware/socket';
 import * as socketio from 'socket.io'
 import { LinhasRepository } from './repository/LinhasRepository';
 import { LinhasController } from './controllers/LinhasController';
 
-
+const changeStream = Problema.watch();
+changeStream.on('change', next => {
+    console.log('alterou');
+    console.log(next.fullDocument);
+    let incidente = next.fullDocument;
+})
 
 // import { BilheteRepository } from './repository/BilheteRepository';
 // import { BilheteController } from './controllers/BilheteController';
@@ -101,7 +106,6 @@ export class App {
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(passport.initialize())
         this.app.use(passport.session())
-        this.app.use(socketio.listen)
 
         const routerRepository = new RouterRepository();
         const problemaRepository = new ProblemaRepositoty()
@@ -137,19 +141,10 @@ export class App {
     private listenSocket(): void {
         this.io.on('connection', (socket: any) => {
             console.log('conectado');
-            const changeStream = Problema.watch();
-            changeStream.on('change', next => {
-                console.log('alterou');
-                console.log(next.fullDocument);
-                let incidente = next.fullDocument;
-                socket.emit('incidentes', incidente )
-            })
-
             
-
             socket.on('sousa', ((msg) => {
                 console.log(msg);
-
+                
             }))
 
             socket.on('disconnect', () => {
