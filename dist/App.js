@@ -42,11 +42,6 @@ const socket_1 = require("./middleware/socket");
 const socketio = require("socket.io");
 const LinhasRepository_1 = require("./repository/LinhasRepository");
 const LinhasController_1 = require("./controllers/LinhasController");
-const changeStream = Problema_1.default.watch();
-changeStream.on('change', next => {
-    console.log('alterou');
-    console.log(next.fullDocument);
-});
 // import { BilheteRepository } from './repository/BilheteRepository';
 // import { BilheteController } from './controllers/BilheteController';
 exports.Passport = passport;
@@ -96,6 +91,7 @@ class App {
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(passport.initialize());
         this.app.use(passport.session());
+        this.app.use(socketio.listen);
         const routerRepository = new RouterRepository_1.RouterRepository();
         const problemaRepository = new ProblemaRepository_1.ProblemaRepositoty();
         const userRepository = new UserRepository_1.UserRepository();
@@ -116,6 +112,13 @@ class App {
     listenSocket() {
         this.io.on('connection', (socket) => {
             console.log('conectado');
+            const changeStream = Problema_1.default.watch();
+            changeStream.on('change', next => {
+                console.log('alterou');
+                console.log(next.fullDocument);
+                let incidente = next.fullDocument;
+                socket.emit('incidentes', incidente);
+            });
             socket.on('sousa', ((msg) => {
                 console.log(msg);
             }));
