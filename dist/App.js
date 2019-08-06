@@ -61,7 +61,6 @@ class App {
         this.middleware();
         this.listen();
         this.socketConnect();
-        this.listenSocket();
         new Database_1.Database();
     }
     listen() {
@@ -113,17 +112,6 @@ class App {
     }
     initializeStrategies() {
         _initialize_1.initializeStrategies(passport);
-    }
-    listenSocket() {
-        this.io.on('connection', (socket) => {
-            console.log('conectado');
-            socket.on('sousa', ((msg) => {
-                console.log(msg);
-            }));
-            socket.on('disconnect', () => {
-                console.log('disconecteado');
-            });
-        });
     }
     getApp() {
         return this.app;

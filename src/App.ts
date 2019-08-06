@@ -65,7 +65,6 @@ export class App {
         this.middleware();
         this.listen();
         this.socketConnect();
-        this.listenSocket();
         new Database();
 
     }
@@ -138,22 +137,6 @@ export class App {
         initializeStrategies(passport)
     }
 
-    private listenSocket(): void {
-        this.io.on('connection', (socket: any) => {
-            console.log('conectado');
-            
-            socket.on('sousa', ((msg) => {
-                console.log(msg);
-                
-            }))
-
-            socket.on('disconnect', () => {
-
-                console.log('disconecteado');
-            })
-        })
-
-    }
 
     public getApp(): express.Application {
         return this.app;
