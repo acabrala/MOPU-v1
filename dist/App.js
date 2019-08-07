@@ -13,7 +13,6 @@ const bodyParser = require("body-parser");
 const http_1 = require("http");
 const sequelize_1 = require("./db/sequelize");
 const Router_1 = require("./routes/Router");
-const io = require("socket.io");
 const passport = require("passport");
 const AuthController_1 = require("./controllers/AuthController");
 const UserRepository_1 = require("./repository/UserRepository");
@@ -38,16 +37,9 @@ const MobileController_1 = require("./controllers/MobileController");
 const MobileRepository_1 = require("./repository/MobileRepository");
 const AvatarRepository_1 = require("./repository/AvatarRepository");
 const AvatarController_1 = require("./controllers/AvatarController");
-const socket_1 = require("./middleware/socket");
 const socketio = require("socket.io");
 const LinhasRepository_1 = require("./repository/LinhasRepository");
 const LinhasController_1 = require("./controllers/LinhasController");
-const changeStream = Problema_1.default.watch();
-changeStream.on('change', next => {
-    console.log('alterou');
-    console.log(next.fullDocument);
-    let incidente = next.fullDocument;
-});
 // import { BilheteRepository } from './repository/BilheteRepository';
 // import { BilheteController } from './controllers/BilheteController';
 exports.Passport = passport;
@@ -69,8 +61,18 @@ class App {
                 yield sequelize_1.sequelize.sync({ force: false });
                 this.server.listen(this.port, () => {
                     console.log('Running server on port %s', this.port);
-                    const io = socketio(this.server);
-                    new socket_1.SocketConnection(io);
+                    this.io.on('connect', (socket) => {
+                        console.log("se pa foi");
+                        const changeStream = Problema_1.default.watch();
+                        changeStream.on('change', next => {
+                            let data_incidente = next.fullDocument.horario_ocorrencia;
+                            console.log(data_incidente);
+                            socket.emit('incidentes', next.fullDocument);
+                        });
+                        socket.on('sousa', ((msg) => {
+                            console.log(msg);
+                        }));
+                    });
                 });
             }
             catch (e) {
@@ -80,7 +82,7 @@ class App {
         });
     }
     socketConnect() {
-        this.io = io(this.server);
+        this.io = socketio(this.server);
     }
     createApp() {
         this.app = express();

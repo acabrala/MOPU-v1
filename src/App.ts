@@ -3,7 +3,6 @@ import * as bodyParser from 'body-parser';
 import { Server, createServer } from 'http';
 import { sequelize } from "./db/sequelize";
 import Router from './routes/Router';
-import * as io from 'socket.io';
 import * as passport from 'passport'
 import { AuthController } from './controllers/AuthController';
 import { UserRepository } from './repository/UserRepository';
@@ -28,20 +27,15 @@ import { MobileController } from './controllers/MobileController';
 import { MobileRepository } from './repository/MobileRepository';
 import { AvatarRepository } from './repository/AvatarRepository';
 import { AvatarController } from './controllers/AvatarController';
-import {SocketConnection} from './middleware/socket';
+import { SocketConnection } from './middleware/socket';
 import * as socketio from 'socket.io'
 import { LinhasRepository } from './repository/LinhasRepository';
 import { LinhasController } from './controllers/LinhasController';
-
-const changeStream = Problema.watch();
-changeStream.on('change', next => {
-    console.log('alterou');
-    console.log(next.fullDocument);
-    let incidente = next.fullDocument;
-})
+import * as moment from 'moment'
 
 // import { BilheteRepository } from './repository/BilheteRepository';
 // import { BilheteController } from './controllers/BilheteController';
+
 
 
 export const Passport = passport;
@@ -54,7 +48,6 @@ export class App {
     private port: string | number;
     private server: Server;
     public auth;
-    private socket;
     private io: SocketIO.Server;
 
     constructor() {
@@ -75,8 +68,20 @@ export class App {
 
             this.server.listen(this.port, () => {
                 console.log('Running server on port %s', this.port);
-                const io = socketio(this.server);
-                new SocketConnection(io)
+                this.io.on('connect', (socket: any) => {
+                    console.log("se pa foi")
+                    const changeStream = Problema.watch();
+                    changeStream.on('change', next => {
+                        let data_incidente = next.fullDocument.horario_ocorrencia
+                        console.log(data_incidente)
+                        socket.emit('incidentes', next.fullDocument)
+                        
+                    })
+
+                    socket.on('sousa', ((msg) => {
+                        console.log(msg)
+                    }))
+                })
             });
         } catch (e) {
             console.log("FATAL ERROR: COULD NOT CONNECT TO DATABASE.");
@@ -85,7 +90,7 @@ export class App {
     }
 
     private socketConnect(): void {
-        this.io = io(this.server)
+        this.io = socketio(this.server)
     }
 
     private createApp(): void {

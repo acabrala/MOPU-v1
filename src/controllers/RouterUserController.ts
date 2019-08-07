@@ -63,7 +63,7 @@ export class RouterUserController {
                 res.status(404).json(new Response(true, 'Erro ao excluir rotas', null))
             }
 
-            res.status(201).json(new Response(false, "Rota excluída com sucesso", delRouter))
+            res.status(202).json(new Response(false, "Rota excluída com sucesso", delRouter))
 
         } catch (e) {
 

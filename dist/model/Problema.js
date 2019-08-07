@@ -25,9 +25,8 @@ const ProblemaSchema = new mongoose.Schema({
         required: true
     },
     horario_ocorrencia: {
-        type: Date,
-        required: true,
-        default: data_local
+        type: String,
+        required: true
     },
     id_mobile: {
         type: Number,
@@ -45,7 +44,7 @@ const ProblemaSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
     },
-    status: {
+    status_finalizado: {
         type: Boolean,
         required: false,
         default: false

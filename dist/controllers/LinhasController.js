@@ -13,7 +13,6 @@ class LinhasController {
     constructor(linhasRepository) {
         this.consultarlinhas = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const linhas = yield this.linhasRepository.getLinhas();
-            console.log(linhas);
             return res.status(201).json(new Response_1.Response(false, "deu bom", linhas));
         });
         this.linhasRepository = linhasRepository;

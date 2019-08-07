@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const ProblemaReal_1 = require("../model/ProblemaReal");
-const changeStream = ProblemaReal_1.default.watch();
-changeStream.on('change', next => {
-    console.log('alterou');
-    console.log(next.fullDocument);
-    let incidente = next.fullDocument;
-});
+let incidente;
 class SocketConnection {
     constructor(socket) {
         this.io = socket;
         this.io.on('connection', socket => {
+            socket.emit('incidente', ((incidente) => {
+                console.log('jkasjkldnas jahsd hnjahnsd');
+            }));
             console.log("Conectado");
+            socket.on('sousa', ((msg) => {
+                console.log(msg);
+            }));
             socket.on('disconnect', () => {
                 console.log(`User disconnected.`);
             });

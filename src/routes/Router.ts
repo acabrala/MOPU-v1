@@ -7,13 +7,14 @@ import authVerify from '../middleware/authverify';
 import { Request, Response } from 'express'
 import * as passport from 'passport';
 import request from "request";
-import { Passport } from '../App';
 import { RouterUserController } from "../controllers/RouterUserController";
 import { FavoritosController } from "../controllers/FavoritosController";
 import { ProblemaController } from "../controllers/ProblemaController";
 import { MobileController } from "../controllers/MobileController";
 import { AvatarController } from "../controllers/AvatarController";
 import { LinhasController } from "../controllers/LinhasController";
+
+import { Socket } from '../App'; 
 
 export default class Router {
 

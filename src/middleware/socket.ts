@@ -1,13 +1,7 @@
 import * as socket from 'socket.io'
 import Problema from '../model/ProblemaReal';
+let incidente;
 
-
-const changeStream = Problema.watch();
-changeStream.on('change', next => {
-    console.log('alterou');
-    console.log(next.fullDocument);
-    let incidente = next.fullDocument;
-})
 
 export class SocketConnection {
     server: any
@@ -17,11 +11,25 @@ export class SocketConnection {
         this.io = socket;
 
         this.io.on('connection', socket => {
+
+            socket.emit('incidente', ((incidente) => {
+                console.log('jkasjkldnas jahsd hnjahnsd')
+            }))
+
+
             console.log("Conectado")
 
-        socket.on('disconnect', () => {
-        console.log(`User disconnected.`)
+
+            socket.on('sousa', ((msg) => {
+                console.log(msg);
+
+            }))
+
+
+
+            socket.on('disconnect', () => {
+                console.log(`User disconnected.`)
+            });
         });
-    });
-}
+    }
 }
