@@ -16,7 +16,7 @@ const Incidentes_1 = require("../model/Incidentes");
 exports.sequelize = new sequelize_typescript_1.Sequelize({
     dialect: "postgres",
     operatorsAliases: sequelize_typescript_1.Sequelize.Op,
-    host: "127.0.0.1",
+    host: "34.68.209.220",
     port: 5432,
     database: "mobilidade",
     username: "postgres",

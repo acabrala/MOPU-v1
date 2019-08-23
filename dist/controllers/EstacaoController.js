@@ -27,6 +27,7 @@ class EstacaoController {
             }
         });
         this.getStation = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            console.log('esta chegando');
             try {
                 const stations = yield this.estacaoRepository.getStations();
                 if (stations) {

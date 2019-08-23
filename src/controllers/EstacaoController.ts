@@ -28,6 +28,8 @@ export class EstacaoController {
 
     getStation = async (req, res) => {
 
+        console.log('esta chegando')
+
         try {
             const stations = await this.estacaoRepository.getStations();
             

@@ -35,7 +35,7 @@ __decorate([
 ], Incidentes.prototype, "linha_problema", void 0);
 __decorate([
     sequelize_typescript_1.Column,
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], Incidentes.prototype, "horario_ocorrencia", void 0);
 __decorate([
     sequelize_typescript_1.Column,

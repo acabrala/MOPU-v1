@@ -23,7 +23,7 @@ export class Incidentes extends Model<Incidentes> {
     linha_problema: string;
 
     @Column
-    horario_ocorrencia: Date;
+    horario_ocorrencia: string;
 
     @Column
     id_mobile: string;

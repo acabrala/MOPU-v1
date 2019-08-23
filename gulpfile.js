@@ -23,7 +23,7 @@ gulp.task('static', ['clean'], () => {
 gulp.task('clean', () => {
     return gulp
         .src('dist')
-        .pipe(clean());
+        .pipe(clean({force: true}));
 });
 
 gulp.task('build', ['scripts']);

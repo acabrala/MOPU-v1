@@ -9,14 +9,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Problema_1 = require("../model/Problema");
-const Incidentes_1 = require("../model/Incidentes");
 const moment = require("moment");
+const data_atual = moment().subtract(180, "minutes").format("DD/MM/YYYY HH:mm:ss");
 class ProblemaRepositoty {
     constructor() {
         this.createProblem = (problema) => __awaiter(this, void 0, void 0, function* () {
-            problema.horario_ocorrencia = moment().format("DD/MM/YYYY HH:mm:ss");
-            Incidentes_1.Incidentes.create(problema);
-            return yield Problema_1.default.create(problema);
+            if (problema.anonimo === "true") {
+                console.log(Problema_1.default.find({ local_problema: problema.local_problema, horario_ocorrencia: { $gt: data_atual } }));
+                const problemas = yield Problema_1.default.find({ local_problema: problema.local_problema, horario_ocorrencia: { $gt: data_atual } });
+                console.log(problemas);
+            }
+            // problema.horario_ocorrencia = moment().format("DD/MM/YYYY HH:mm:ss")
+            // // Incidentes.create(problema)
+            // return await Problema.create(problema)
+        });
+        this.getIncidentes = (problema) => __awaiter(this, void 0, void 0, function* () {
+            Problema_1.default.find({ horario_ocorrencia: { $lt: data_atual } });
         });
     }
 }

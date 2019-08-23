@@ -19,6 +19,10 @@ class Database {
             yield mongoose.connect(this.MONGODB_URI, {
                 useCreateIndex: true,
                 useNewUrlParser: true
+            }).then(() => {
+                console.log('sucesso');
+            }).catch(() => {
+                console.log('erro');
             });
             console.log("MongoDB connected.");
         });

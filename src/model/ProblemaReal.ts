@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 import * as moment from 'moment-timezone';
 let data_local = moment.tz(Date.now(), "America/Sao_Paulo")
 
-const ProblemaSchema = new mongoose.Schema({
+const ProblemaRealSchema = new mongoose.Schema({
     tipo_transporte: {
         type: String,
         required: true
@@ -44,9 +44,14 @@ const ProblemaSchema = new mongoose.Schema({
     duracao_ocorrencia: {
         type: Number,
         required: false
+    },
+    quantidade_relatada: {
+        type: Number,
+        required: true,
+        default: 1
     }
 })
 
-const Problema = mongoose.model("Problema-Real", ProblemaSchema);
+const ProblemaReal = mongoose.model("Problema-Real", ProblemaRealSchema);
 
-export default Problema;
+export default ProblemaReal;
