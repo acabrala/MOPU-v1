@@ -1,12 +1,10 @@
 import * as mongoose from "mongoose";
-import { App } from "../App";
 
-
-export  class Database {
+export class Database {
 
     private MONGODB_URI: string = "mongodb://localhost:27017/mobilidade?replicaSet=rs0";
 
-    constructor(){
+    constructor() {
         this.connectMongo();
     }
 

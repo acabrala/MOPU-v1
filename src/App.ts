@@ -22,20 +22,14 @@ import { RouterRepository } from './repository/RouterRepository';
 import { FavoritosController } from './controllers/FavoritosController';
 import { ProblemaRepositoty } from './repository/ProblemaRepository';
 import { ProblemaController } from './controllers/ProblemaController';
-import Problema from './model/Problema';
 import { MobileController } from './controllers/MobileController';
 import { MobileRepository } from './repository/MobileRepository';
 import { AvatarRepository } from './repository/AvatarRepository';
 import { AvatarController } from './controllers/AvatarController';
-import { SocketConnection } from './middleware/socket';
 import * as socketio from 'socket.io'
 import { LinhasRepository } from './repository/LinhasRepository';
 import { LinhasController } from './controllers/LinhasController';
-import * as moment from 'moment'
-
-// import { BilheteRepository } from './repository/BilheteRepository';
-// import { BilheteController } from './controllers/BilheteController';
-
+import ProblemaReal from './model/ProblemaReal';
 
 
 export const Passport = passport;
@@ -70,7 +64,9 @@ export class App {
                 console.log('Running server on port %s', this.port);
                 this.io.on('connect', (socket: any) => {
                     console.log("se pa foi")
-                    const changeStream = Problema.watch();
+
+                    
+                    const changeStream = ProblemaReal.watch();
                     changeStream.on('change', next => {
                         let data_incidente = next.fullDocument.horario_ocorrencia
                         console.log(data_incidente)
