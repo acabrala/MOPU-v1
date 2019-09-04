@@ -1,11 +1,8 @@
 import { Table, Column, Model, Length, IsEmail, CreatedAt, Unique, DataType, BeforeCreate, AutoIncrement, HasMany, ForeignKey, HasOne, AllowNull } from 'sequelize-typescript';
-import * as bcrypt from "bcrypt";
-import * as jwt from "jsonwebtoken";
 import { User } from './User';
 import { LinesRoutes } from './LinhasRotas';
 import { RoutesDescriptions } from './DescricaoRotas';
 import { RoutesDay } from './DiasRotas';
-import { DataTypes } from 'sequelize';
 
 
 @Table({

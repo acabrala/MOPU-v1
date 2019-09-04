@@ -3,7 +3,6 @@ import { Op } from "sequelize";
 import { Routes } from "../model/Rotas";
 import Mail from "../services/mail";
 import * as crypto from 'crypto';
-import * as bcrypt from 'bcrypt';
 import { Favoritos } from "../model/Favoritos";
 
 

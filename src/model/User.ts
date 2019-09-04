@@ -1,5 +1,5 @@
 import { Table, Column, Model, Length, IsEmail, CreatedAt, Unique, DataType, BeforeCreate, AutoIncrement, HasMany } from 'sequelize-typescript';
-import * as bcrypt from "bcrypt";
+import * as bcrypt from "bcrypt-nodejs";
 import * as jwt from "jsonwebtoken";
 import { Routes } from '../model/Rotas'
 import { Favoritos } from './Favoritos';
