@@ -1,5 +1,13 @@
-const moment = require('moment')
+const { Pool, Client } = require('pg');
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'mobilidade',
+    password: 'MKTz@zz1',
+    port: 5432
+});
 
-
-const data_atual = moment().subtract(180, "minutes").format("DD/MM/YYYY HH:mm:ss")
-console.log(data)
+pool.query('Select * from usuario', (err, res) => {
+    console.log(err, res.rows)
+    pool.end()
+})

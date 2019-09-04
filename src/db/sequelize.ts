@@ -15,7 +15,7 @@ import { Incidentes } from "../model/Incidentes";
 export const sequelize = new Sequelize({
     dialect: "postgres",
     operatorsAliases: Sequelize.Op as any,
-    host: "34.68.209.220",
+    host: "localhost",
     port: 5432,
     database: "mobilidade",
     username: "postgres",

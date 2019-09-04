@@ -138,7 +138,6 @@ export class App {
         initializeStrategies(passport)
     }
 
-
     public getApp(): express.Application {
         return this.app;
     }
