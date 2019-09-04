@@ -1,6 +1,6 @@
 import Problema from "../model/Problema";
 import { Incidentes } from "../model/Incidentes";
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 import ProblemaReal from "../model/ProblemaReal";
 
 
@@ -9,6 +9,8 @@ const data_atual = moment().subtract(180, "minutes").format("DD/MM/YYYY HH:mm:ss
 export class ProblemaRepositoty {
 
     createProblem = async (problema) => {
+        problema.horario_ocorrencia = moment().tz("America/Sao_Paulo").format("DD/MM/YYYY HH:mm:ss")
+
 
         const verificar_existente = await ProblemaReal.find({ local_problema: problema.local_problema, linha_problema: problema.linha_problema })
 
@@ -30,31 +32,54 @@ export class ProblemaRepositoty {
 
                 if (problemas.length >= 3) {
 
-                    ProblemaReal.create(problema)
+                    let problema_real = {
+                        tipo_transporte: problema.tipo_transporte,
+                        linha_problema: problema.linha_problema,
+                        local_problema: problema.local_problema,
+                        motivo: problema.problema,
+                        submotivo: problema.problema,
+                        id_usuario: problema.id_usuario,
+                        horario_inicio: problema.horario_ocorrencia,
+                        horario_fim: null,
+                        duracao_ocorrencia: null,
+                        quantidade_relatada: 3
+
+                    };
+
+                    ProblemaReal.create(problema_real)
                     Incidentes.create(problema)
                     return await Problema.create(problema)
 
                 } else {
 
                     Problema.create(problema)
-                    Incidentes.create()
-                    return
+                    Incidentes.create(problema)
+
                 }
             } else {
 
-                Problema.create()
-                Incidentes.create()
-                ProblemaReal.create()
+                let problema_real = {
+                    tipo_transporte: problema.tipo_transporte,
+                    linha_problema: problema.linha_problema,
+                    local_problema: problema.local_problema,
+                    motivo: problema.problema,
+                    submotivo: problema.problema,
+                    id_usuario: problema.id_usuario,
+                    horario_inicio: problema.horario_ocorrencia,
+                    horario_fim: null,
+                    duracao_ocorrencia: null,
+                    quantidade_relatada: 1
 
+                };
+
+                Problema.create(problema)
+                Incidentes.create(problema)
+                ProblemaReal.create(problema_real)
             }
         }
-
     }
 
     getIncidentes = async (problema) => {
         Problema.find({ horario_ocorrencia: { $lt: data_atual } })
     }
-
-
-
 }
