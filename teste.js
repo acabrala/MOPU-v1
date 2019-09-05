@@ -1,13 +1,10 @@
-const { Pool, Client } = require('pg');
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'mobilidade',
-    password: 'MKTz@zz1',
-    port: 5432
-});
 
-pool.query('Select * from usuario', (err, res) => {
-    console.log(err, res.rows)
-    pool.end()
-})
+const io = require("socket.io-client");
+
+const socket = io("http://localhost:3000");
+
+socket.on("connect", (result => {
+    console.log(result);
+    
+}))
+

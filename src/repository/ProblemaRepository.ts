@@ -2,6 +2,7 @@ import Problema from "../model/Problema";
 import { Incidentes } from "../model/Incidentes";
 import * as moment from 'moment-timezone';
 import ProblemaReal from "../model/ProblemaReal";
+import LinhasTrilhos from "../model/LinhasTrilhos";
 
 
 const data_atual = moment().subtract(180, "minutes").format("DD/MM/YYYY HH:mm:ss")
@@ -47,6 +48,7 @@ export class ProblemaRepositoty {
                     };
 
                     ProblemaReal.create(problema_real)
+                    LinhasTrilhos.update({nome: problema.linha_problema}, {$set: { status_disponivel: false}})
                     Incidentes.create(problema)
                     return await Problema.create(problema)
 
@@ -75,6 +77,7 @@ export class ProblemaRepositoty {
                 Problema.create(problema)
                 Incidentes.create(problema)
                 ProblemaReal.create(problema_real)
+                LinhasTrilhos.update({nome: problema.linha_problema}, {$set: { status_disponivel: false}})
             }
         }
     }

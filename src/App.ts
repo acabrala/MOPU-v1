@@ -74,6 +74,20 @@ export class App {
                         
                     })
 
+                    const geral = ProblemaReal.aggregate([
+                        {
+                            $lookup: 
+                                {
+                                    from: "linhas",
+                                    localField: "linha_problema",
+                                    foreignField: "nome",
+                                    as: "localizacao"
+                                }
+                        }
+                    ])
+
+                    console.log(geral)
+
                     socket.on('sousa', ((msg) => {
                         console.log(msg)
                     }))
