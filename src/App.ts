@@ -74,19 +74,27 @@ export class App {
                         
                     })
 
-                    const geral = ProblemaReal.aggregate([
+		geral()
+			
+                    async function geral(){
+		 	const teste =  await ProblemaReal.aggregate([
                         {
                             $lookup: 
                                 {
                                     from: "linhas",
-                                    localField: "linha_problema",
+                                    localField: "local_problema",
                                     foreignField: "nome",
                                     as: "localizacao"
                                 }
                         }
                     ])
+		console.log(teste)
 
-                    console.log(geral)
+			socket.emit('incidentes-geral', teste)
+		}
+		
+
+
 
                     socket.on('sousa', ((msg) => {
                         console.log(msg)

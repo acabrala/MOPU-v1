@@ -1,8 +1,9 @@
-import * as mongoose from 'mongoose';
-import * as moment from 'moment-timezone';
-let data_local = moment.tz(Date.now(), "America/Sao_Paulo")
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose = require("mongoose");
+const moment = require("moment-timezone");
+let data_local = moment.tz(Date.now(), "America/Sao_Paulo");
 mongoose.pluralize(null);
-
 const ProblemaRealSchema = new mongoose.Schema({
     tipo_transporte: {
         type: String,
@@ -51,8 +52,6 @@ const ProblemaRealSchema = new mongoose.Schema({
         required: true,
         default: 1
     }
-})
-
+});
 const ProblemaReal = mongoose.model("Problema-Real", ProblemaRealSchema);
-
-export default ProblemaReal;
+exports.default = ProblemaReal;
