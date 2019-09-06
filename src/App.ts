@@ -65,34 +65,34 @@ export class App {
                 this.io.on('connect', (socket: any) => {
                     console.log("se pa foi")
 
-                    
+
                     const changeStream = ProblemaReal.watch();
                     changeStream.on('change', next => {
                         let data_incidente = next.fullDocument.horario_ocorrencia
                         console.log(data_incidente)
                         socket.emit('incidentes', next.fullDocument)
-                        
+
                     })
 
-		geral()
-			
-                    async function geral(){
-		 	const teste =  await ProblemaReal.aggregate([
-                        {
-                            $lookup: 
+                    geral()
+
+                    async function geral() {
+                        const teste = await ProblemaReal.aggregate([
+                            {
+                                $lookup:
                                 {
                                     from: "linhas",
                                     localField: "local_problema",
                                     foreignField: "nome",
                                     as: "localizacao"
                                 }
-                        }
-                    ])
-		console.log(teste)
+                            }
+                        ])
+                        console.log(teste)
 
-			socket.emit('incidentes-geral', teste)
-		}
-		
+                        socket.emit('incidentes-geral', teste)
+                    }
+
 
 
 

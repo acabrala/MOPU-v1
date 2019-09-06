@@ -13,6 +13,7 @@ const Incidentes_1 = require("../model/Incidentes");
 const moment = require("moment-timezone");
 const ProblemaReal_1 = require("../model/ProblemaReal");
 const LinhasTrilhos_1 = require("../model/LinhasTrilhos");
+const LinhasRotas_1 = require("../model/LinhasRotas");
 const data_atual = moment().subtract(180, "minutes").format("DD/MM/YYYY HH:mm:ss");
 class ProblemaRepositoty {
     constructor() {
@@ -74,7 +75,10 @@ class ProblemaRepositoty {
             }
         });
         this.getIncidentes = (problema) => __awaiter(this, void 0, void 0, function* () {
-            Problema_1.default.find({ horario_ocorrencia: { $lt: data_atual } });
+            const issues = yield LinhasRotas_1.LinesRoutes.findAll({ where: { id_rota: problema.id_rota } });
+            if (issues) {
+                console.log(issues);
+            }
         });
     }
 }

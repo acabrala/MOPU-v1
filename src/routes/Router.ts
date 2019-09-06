@@ -56,7 +56,8 @@ export default class Router {
     private GERAR_TERMINAL:string = this.BASE_URL + "/mobile";
     private ATUALIZAR_TERMINAL:string = this.BASE_URL + "/mobile/atualizar";
     private DESCER_AVATAR:string = this.BASE_URL + "/avatares";
-    private DESCER_LINHAS:string = this.BASE_URL + "/linhas"
+    private DESCER_LINHAS:string = this.BASE_URL + "/linhas";
+    private PROBLEMAS_USER:string = this.BASE_URL + "/incidentes/usuario";
 
     constructor(authController: AuthController, userController: UserController,
         estacaoController: EstacaoController, estacaoAreaController: EstacaoAreaController,
@@ -119,6 +120,7 @@ export default class Router {
 
         //Problemas
         app.route(this.RELATAR_PROBLEMA).post(this.problemaController.createNewProblem)
+        app.route(this.PROBLEMAS_USER).post(this.problemaController.getProblemsUser)
 
 
         //Mobile

@@ -24,4 +24,12 @@ export class ProblemaController {
         }
     }
 
+    getProblemsUser = async (req, res) => {
+        try {
+            const problemUser = await this.problemaRepository.getIncidentes(req.body)
+        } catch (e) {
+            
+        }
+    }
+
 }

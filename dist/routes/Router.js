@@ -31,6 +31,7 @@ class Router {
         this.ATUALIZAR_TERMINAL = this.BASE_URL + "/mobile/atualizar";
         this.DESCER_AVATAR = this.BASE_URL + "/avatares";
         this.DESCER_LINHAS = this.BASE_URL + "/linhas";
+        this.PROBLEMAS_USER = this.BASE_URL + "/incidentes/usuario";
         this.authController = authController;
         this.userController = userController;
         this.estacaoController = estacaoController;
@@ -75,6 +76,7 @@ class Router {
         app.route(this.ALTERAR_FAVORITO).patch(this.favoritosController.updateFavorites);
         //Problemas
         app.route(this.RELATAR_PROBLEMA).post(this.problemaController.createNewProblem);
+        app.route(this.PROBLEMAS_USER).post(this.problemaController.getProblemsUser);
         //Mobile
         app.route(this.GERAR_TERMINAL).post(this.mobileController.gerarMobile);
         app.route(this.ATUALIZAR_TERMINAL).patch(this.mobileController.atualizarMobile);

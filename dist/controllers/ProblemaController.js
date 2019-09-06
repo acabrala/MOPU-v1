@@ -21,6 +21,13 @@ class ProblemaController {
                 return res.status(422).json(new Response_1.Response(true, e.message, false));
             }
         });
+        this.getProblemsUser = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const problemUser = yield this.problemaRepository.getIncidentes(req.body);
+            }
+            catch (e) {
+            }
+        });
         this.problemaRepository = problemaRepository;
     }
 }
