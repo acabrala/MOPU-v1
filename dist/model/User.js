@@ -18,7 +18,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_typescript_1 = require("sequelize-typescript");
-const bcrypt = require("bcrypt-nodejs");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Rotas_1 = require("../model/Rotas");
 const Favoritos_1 = require("./Favoritos");

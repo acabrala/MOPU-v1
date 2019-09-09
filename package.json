@@ -24,6 +24,7 @@
     "@types/socket.io": "^2.1.2",
     "anonymous-id": "^0.1.14",
     "axios": "^0.19.0",
+    "bcrypt": "^3.0.6",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "crypto": "^1.0.1",
@@ -66,7 +67,7 @@
     "sequelize": "^4.44.0",
     "sequelize-typescript": "0.6.7",
     "socket.io": "^2.2.0",
-    "typescript": "^3.5.1",
+    "typescript": "3.3.3",
     "unidecode": "^0.1.8",
     "uniqid": "^5.0.3",
     "utf8": "^3.0.0"
