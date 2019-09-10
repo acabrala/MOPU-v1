@@ -44,8 +44,7 @@ export class RouterUserController {
                     const diasRotas = await this.routerRepository.createDaysRouter(daysRouter)
 
                 }
-
-
+                
                 res.status(201).json(new Response(false, "Rota Inserida com sucesso", { "id_rota": router.dataValues.id }))
             }
 

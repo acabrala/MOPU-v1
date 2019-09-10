@@ -84,11 +84,32 @@ export class ProblemaRepositoty {
     }
 
     getIncidentes = async (problema) => {
+        let problemas = []
         const issues = await LinesRoutes.findAll({ where: { id_rota: problema.id_rota } })
 
         if (issues) {
-            console.log(issues);
-        }
 
+            for (let i = 0; i < issues.length; i++) {
+
+                    await ProblemaReal.aggregate([
+                        {
+                            $lookup: {
+                                from: "linhas",
+                                localField: "local_problema",
+                                foreignField: "nome",
+                                as: "localizacao"
+                            }
+                        }, {
+                            $match: {
+                                "linha_problema": issues[i].dataValues.descricao, ocorrencia_finalizada: false 
+                            }
+                        }
+                    ]).then(abc => {
+                        problemas.push(abc[0])
+                    })
+            }
+
+                return problemas
+        }
     }
 }

@@ -24,6 +24,9 @@ class ProblemaController {
         this.getProblemsUser = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const problemUser = yield this.problemaRepository.getIncidentes(req.body);
+                if (problemUser) {
+                    return res.status(200).json(new Response_1.Response(false, 'Problemas listados', problemUser));
+                }
             }
             catch (e) {
             }

@@ -27,6 +27,12 @@ export class ProblemaController {
     getProblemsUser = async (req, res) => {
         try {
             const problemUser = await this.problemaRepository.getIncidentes(req.body)
+        
+            if(problemUser){
+
+                return res.status(200).json(new Response(false, 'Problemas listados', problemUser))
+            }
+        
         } catch (e) {
             
         }

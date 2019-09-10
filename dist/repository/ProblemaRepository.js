@@ -75,9 +75,28 @@ class ProblemaRepositoty {
             }
         });
         this.getIncidentes = (problema) => __awaiter(this, void 0, void 0, function* () {
+            let problemas = [];
             const issues = yield LinhasRotas_1.LinesRoutes.findAll({ where: { id_rota: problema.id_rota } });
             if (issues) {
-                console.log(issues);
+                for (let i = 0; i < issues.length; i++) {
+                    yield ProblemaReal_1.default.aggregate([
+                        {
+                            $lookup: {
+                                from: "linhas",
+                                localField: "local_problema",
+                                foreignField: "nome",
+                                as: "localizacao"
+                            }
+                        }, {
+                            $match: {
+                                "linha_problema": issues[i].dataValues.descricao, ocorrencia_finalizada: false
+                            }
+                        }
+                    ]).then(abc => {
+                        problemas.push(abc[0]);
+                    });
+                }
+                return problemas;
             }
         });
     }

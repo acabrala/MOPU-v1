@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 import * as moment from 'moment-timezone';
-let data_local = moment.tz(Date.now(), "America/Sao_Paulo")
+let data_local = moment.tz(Date.now(), "America/Sao_Paulo").format("DD/MM/YYYY HH:mm:ss")
 mongoose.pluralize(null);
 
 const ProblemaRealSchema = new mongoose.Schema({

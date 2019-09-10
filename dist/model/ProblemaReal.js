@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = require("mongoose");
 const moment = require("moment-timezone");
-let data_local = moment.tz(Date.now(), "America/Sao_Paulo");
+let data_local = moment.tz(Date.now(), "America/Sao_Paulo").format("DD/MM/YYYY HH:mm:ss");
 mongoose.pluralize(null);
 const ProblemaRealSchema = new mongoose.Schema({
     tipo_transporte: {
