@@ -14,6 +14,7 @@ const moment = require("moment-timezone");
 const ProblemaReal_1 = require("../model/ProblemaReal");
 const LinhasTrilhos_1 = require("../model/LinhasTrilhos");
 const LinhasRotas_1 = require("../model/LinhasRotas");
+const ProblemReally_1 = require("../model/ProblemReally");
 const data_atual = moment().subtract(180, "minutes").format("DD/MM/YYYY HH:mm:ss");
 class ProblemaRepositoty {
     constructor() {
@@ -67,6 +68,7 @@ class ProblemaRepositoty {
                         duracao_ocorrencia: null,
                         quantidade_relatada: 1
                     };
+                    ProblemReally_1.ProblemReally.create(problema);
                     Problema_1.default.create(problema);
                     Incidentes_1.Incidentes.create(problema);
                     ProblemaReal_1.default.create(problema_real);

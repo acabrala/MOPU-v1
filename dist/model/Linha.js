@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var _a;
 const sequelize_typescript_1 = require("sequelize-typescript");
 let Linhas = class Linhas extends sequelize_typescript_1.Model {
 };
@@ -28,7 +29,7 @@ __decorate([
 __decorate([
     sequelize_typescript_1.CreatedAt,
     sequelize_typescript_1.Column,
-    __metadata("design:type", Date)
+    __metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
 ], Linhas.prototype, "data_criacao", void 0);
 Linhas = __decorate([
     sequelize_typescript_1.Table({

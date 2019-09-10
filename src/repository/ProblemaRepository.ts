@@ -4,6 +4,7 @@ import * as moment from 'moment-timezone';
 import ProblemaReal from "../model/ProblemaReal";
 import LinhasTrilhos from "../model/LinhasTrilhos";
 import { LinesRoutes } from "../model/LinhasRotas";
+import { ProblemReally } from "../model/ProblemReally";
 
 
 const data_atual = moment().subtract(180, "minutes").format("DD/MM/YYYY HH:mm:ss")
@@ -75,6 +76,7 @@ export class ProblemaRepositoty {
 
                 };
 
+                ProblemReally.create(problema)
                 Problema.create(problema)
                 Incidentes.create(problema)
                 ProblemaReal.create(problema_real)
