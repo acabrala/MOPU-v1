@@ -76,7 +76,7 @@ export class ProblemaRepositoty {
 
                 };
 
-                ProblemReally.create(problema)
+                ProblemReally.create()
                 Problema.create(problema)
                 Incidentes.create(problema)
                 ProblemaReal.create(problema_real)

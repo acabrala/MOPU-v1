@@ -9,7 +9,6 @@ import { RoutesDay } from "../model/DiasRotas";
 import { RoutesDescriptions } from "../model/DescricaoRotas";
 import * as  uuid from 'uuid/v4';
 
-
 export class AuthController {
 
     private userRepository: UserRepository;
@@ -44,8 +43,6 @@ export class AuthController {
             }
 
             const routers = await this.userRepository.getUserData(user.dataValues.id_user, LinesRoutes, RoutesDay, RoutesDescriptions)
-    
-            
 
             delete user.dataValues.senha
             delete user.dataValues.data_criacao
@@ -98,11 +95,7 @@ export class AuthController {
             if (user) {
 
                 const token = user.generateAuthToken();
-
                 const routers = await this.userRepository.getUserData(user.dataValues.id_user, LinesRoutes, RoutesDay, RoutesDescriptions)
-    
-            
-
                 delete user.dataValues.senha
                 delete user.dataValues.data_criacao
     
@@ -116,6 +109,7 @@ export class AuthController {
 
             }
         } catch (e) {
+            return res.status(422).json(new Response(true, e.message, null))
 
         }
 
@@ -147,4 +141,3 @@ export class AuthController {
         }
     }
 }
-
