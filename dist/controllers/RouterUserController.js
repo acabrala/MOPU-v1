@@ -34,6 +34,11 @@ class RouterUserController {
                         const daysRouter = req.body.dias_rota;
                         daysRouter.id_rota = router.dataValues.id;
                         const diasRotas = yield this.routerRepository.createDaysRouter(daysRouter);
+                        const informations = {
+                            endereco: req.body.rota.origem,
+                            linha: req.body.linhas[0].descricao
+                        };
+                        const matchRoute = yield this.routerRepository.matchRota(informations);
                     }
                     res.status(201).json(new Response_1.Response(false, "Rota Inserida com sucesso", { "id_rota": router.dataValues.id }));
                 }

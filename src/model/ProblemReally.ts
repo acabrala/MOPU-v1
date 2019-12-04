@@ -1,6 +1,6 @@
 import * as moment from 'moment-timezone'
 
-import { Table, Column, Model, Length, IsEmail, CreatedAt, Unique, DataType, BeforeCreate, AutoIncrement, HasMany, ForeignKey } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, AutoIncrement } from 'sequelize-typescript';
 // let data_local = moment.tz(Date.now(), "America/Sao_Paulo").format("DD/MM/YYYY HH:mm:ss")
 
 @Table({

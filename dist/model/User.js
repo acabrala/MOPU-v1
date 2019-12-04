@@ -17,7 +17,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var _a, _b;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -67,7 +66,7 @@ __decorate([
 __decorate([
     sequelize_typescript_1.CreatedAt,
     sequelize_typescript_1.Column,
-    __metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+    __metadata("design:type", Date)
 ], User.prototype, "data_criacao", void 0);
 __decorate([
     sequelize_typescript_1.HasMany(() => Rotas_1.Routes),
@@ -87,7 +86,7 @@ __decorate([
 ], User.prototype, "telefone", void 0);
 __decorate([
     sequelize_typescript_1.Column,
-    __metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+    __metadata("design:type", Date)
 ], User.prototype, "data_nascimento", void 0);
 __decorate([
     sequelize_typescript_1.Column,

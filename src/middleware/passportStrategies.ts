@@ -29,7 +29,7 @@ export function initializeFacebookStrategy(passport: passport.PassportStatic): v
       }; User.findByPk(profile.id)
         .then(usuario => {
           if (usuario) {
-            
+
             return done(null, user)
           }
           user['is_facebook'] = true;
@@ -40,13 +40,10 @@ export function initializeFacebookStrategy(passport: passport.PassportStatic): v
     } catch (e) {
       done(e, null)
     }
-
   }))
-
-
 }
 
-export function initializeAnonymousStrategy(passport: passport.PassportStatic):void {
+export function initializeAnonymousStrategy(passport: passport.PassportStatic): void {
   passport.use(new passportAnonymous())
 }
 
@@ -70,22 +67,16 @@ export function initializeGoogleStrategy(passport: passport.PassportStatic): voi
             return done(null, user)
           }
           user['is_google'] = true;
-          console.log(user);
-          
+
           return done(null, user)
         }).catch(err => {
-          console.log(err);
-
           done(err, null)
         })
     } catch (e) {
-      console.log(e)
       done(e, null)
 
     }
   }))
-
-
 }
 
 export function initializeTwitterStrategy(passport: passport.PassportStatic): void {
@@ -93,31 +84,28 @@ export function initializeTwitterStrategy(passport: passport.PassportStatic): vo
   passport.use(new passportTwitter({
     consumerKey: 'x5pMkNjffN0VezjNlI644un0y',
     consumerSecret: 'Quydz6eO8etyHnyY1wrBHPbdvDIgT1CzAEwLaP5UyQu70qKZx1',
-  }, (token:string, tokenSecret: string, profile: any, done: Function) => {
+  }, (token: string, tokenSecret: string, profile: any, done: Function) => {
 
-    try{
-    let user = {
-      id_user: profile.id,
-      nome: profile.displayName,
-      email: profile.emails[0].value
-    };
+    try {
+      let user = {
+        id_user: profile.id,
+        nome: profile.displayName,
+        email: profile.emails[0].value
+      };
 
-    User.findById(profile.id)
-      .then(usuario => {
-        if (usuario) {
+      User.findById(profile.id)
+        .then(usuario => {
+          if (usuario) {
+            return done(null, user)
+          }
+          user['is_twitter'] = true;
           return done(null, user)
-        }
-        user['is_twitter'] = true;
-        return done(null, user)
-      }).catch(err => {
-        console.log(err);
-
-        done(err, null)
-      })
-  } catch (e) {
-    console.log(e)
-    done(e, null)
-  }
+        }).catch(err => {
+          done(err, null)
+        })
+    } catch (e) {
+      done(e, null)
+    }
   }))
 
 }

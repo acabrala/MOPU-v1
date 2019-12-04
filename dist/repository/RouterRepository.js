@@ -12,10 +12,14 @@ const Rotas_1 = require("../model/Rotas");
 const LinhasRotas_1 = require("../model/LinhasRotas");
 const DescricaoRotas_1 = require("../model/DescricaoRotas");
 const DiasRotas_1 = require("../model/DiasRotas");
+const Trips_1 = require("../model/Trips");
 let diasSemanasArray = [];
+const qs = require('querystring');
+const axios = require("axios");
 class RouterRepository {
     constructor() {
         this.createRouter = (rota) => __awaiter(this, void 0, void 0, function* () {
+            console.log(rota);
             return yield Rotas_1.Routes.create(rota);
         });
         this.updateRouter = (router) => __awaiter(this, void 0, void 0, function* () {
@@ -36,7 +40,6 @@ class RouterRepository {
                     LinhasRotas_1.LinesRoutes.update(linhasRotas[k], { where: { id: result[k].dataValues.id } });
                 }
             });
-            // LinesRoutes.update(linhasRotas, {})  
             if (diasRotas.segunda == 1) {
                 dias_usuario.push(1);
             }
@@ -181,10 +184,43 @@ class RouterRepository {
             return dias;
         });
         this.alterNotification = (notification) => __awaiter(this, void 0, void 0, function* () {
-            console.log(notification);
             let id = notification.id_rota;
             delete notification.id_rota;
             return yield DescricaoRotas_1.RoutesDescriptions.update(notification, { where: { id_rota: id } });
+        });
+        this.matchRota = (information) => __awaiter(this, void 0, void 0, function* () {
+            let endereco_user = `https://maps.googleapis.com/maps/api/geocode/json?address=${qs.escape(information.endereco)}&key=AIzaSyBLPU6jJlWuyz9u3mIvExfsJ95NZF7Gqlg`;
+            axios.get(endereco_user).then((result) => __awaiter(this, void 0, void 0, function* () {
+                let lat_long = result.data.results[0].geometry.location;
+                let localUser = [result.data.results[0].geometry.location.lng, result.data.results[0].geometry.location.lat];
+                console.log(localUser);
+                let numberLine = information.linha.split('-')[0];
+                const txt = yield Trips_1.default.find({ trip_headsign: 'Lauzane Paulista', route_id: '/' + numberLine + '/' });
+                console.log(txt);
+            }));
+            // { rota:
+            //     { id: 0,
+            //       nome_rota: 'Teste',
+            //       origem: 'Rua Rêgo Freitas, 63 - República, São Paulo - SP, Brasil',
+            //       destino:
+            //        'Avenida Braz Leme, 260 - Vila Ester (Zona Norte), São Paulo - SP, Brasil' },
+            //    linhas:
+            //     [ { tipo_transporte: 'onibus',
+            //         descricao: '178L - LAUZANE PAULISTA' } ],
+            //    dias_rota:
+            //     { domingo: false,
+            //       segunda: false,
+            //       terca: true,
+            //       quarta: true,
+            //       quinta: true,
+            //       sexta: false,
+            //       sabado: false },
+            //    descricao_rota:
+            //     { horario_rota: '12:00',
+            //       horario_saida: true,
+            //       horario_chegada: false,
+            //       is_push: true } }
+            //preciso do endereço para pegar a lat e long e conseguir ver qual o stop id mais proximo
         });
     }
 }

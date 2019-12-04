@@ -22,7 +22,6 @@ class Mail {
             }
         });
         transporter.sendMail(mailOptions, (error, info) => {
-            console.log('teste');
             if (error) {
                 console.log(error);
                 return error;

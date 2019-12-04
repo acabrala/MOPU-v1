@@ -8,19 +8,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const User_1 = require("../model/User");
 const Response_1 = require("../model/Response");
 class UserController {
     constructor(userRepository) {
         this.createUser = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log('oba, chegou');
                 const isUSer = yield this.userRepository.getUserByEmail(req.body);
                 if (isUSer) {
                     console.log('deu aqui');
                     return res.status(229).json(new Response_1.Response(false, "Email já está sendo utlizado.", false));
                 }
-                const user = yield User_1.User.create(req.body);
-                res.status(200).json(new Response_1.Response(false, "Usuário criado com sucesso.", user));
+                req.body.email.toLowerCase();
+                console.log(req.body.email);
+                const user = yield this.userRepository.createUser(req.body);
+                res.status(201).json(new Response_1.Response(false, "Usuário criado com sucesso.", user));
             }
             catch (e) {
                 return res.status(422).json(new Response_1.Response(true, e.message, null));

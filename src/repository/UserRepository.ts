@@ -63,9 +63,6 @@ export class UserRepository {
         let id = authUser.id_user
         authUser.senha = '123456'
 
-        console.log(authUser);
-
-
         let user = await User.findOne({
             where: {
                 [Op.and]: [
@@ -83,16 +80,19 @@ export class UserRepository {
             return await User.create(authUser)
 
         }
-
     }
 
     createUser = async (user) => {
+        let email = user.email.toLowerCase();
+        delete user.email
+        user.email = email
+        console.log(email)
         return await User.create(user);
     }
 
     updateUser = async (user) => {
+        console.log(user)
     let id_user = user.id_user
-    delete user['id_user']        
         return await User.update(user, {
             where: { id_user:id_user }
         });
@@ -110,10 +110,12 @@ export class UserRepository {
         return await User.findById(idUser)
     }
 
-    getUserByEmail = async (email) => {
+    getUserByEmail = async (usuario) => {
 
-        let emailUser = email.email
-
+        let emailUser = usuario.email.toLowerCase()
+        console.log(emailUser)
+        console.log(typeof emailUser);
+        
         return await User.findOne({
             where: { email: emailUser },
             include: [Favoritos]
@@ -122,7 +124,6 @@ export class UserRepository {
     }
 
     getUserData = async (id, Rotas_linhas, Rotas_dias, Rotas_descricao) => {
-        console.log(id);
 
         let rotas_user = Routes.findAll({
             where: { id_usuario: id },
@@ -187,8 +188,6 @@ export class UserRepository {
                             Mail.subject = "Redefinição de Senha"
                             Mail.message = `Mais o ${code}`
                             let result = Mail.sendMail();
-
-
                         }
 
                         return "deu certo"
@@ -222,8 +221,7 @@ export class UserRepository {
                             data: {password_token: tokenPassReset}
 
                         };
-                        console.log('response');
-                        
+
                         return Promise.resolve(responseSucess);
 
                     }).catch((err) => {
@@ -243,7 +241,6 @@ export class UserRepository {
 
                 return 
             })
-
     }
 
     changePasswordUser = async (email, newPassword, passwordToken) => {

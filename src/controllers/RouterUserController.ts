@@ -10,8 +10,8 @@ export class RouterUserController {
     }
 
     createNewRouter = async (req, res) => {
-        try {
-
+        try {            
+            
             const router = await this.routerRepository.createRouter(req.body.rota)
 
             if (!router) {
@@ -43,6 +43,12 @@ export class RouterUserController {
 
                     const diasRotas = await this.routerRepository.createDaysRouter(daysRouter)
 
+                    const informations = {
+                        endereco: req.body.rota.origem,
+                        linha: req.body.linhas[0].descricao
+                    };
+
+                    const matchRoute = await this.routerRepository.matchRota(informations)
                 }
                 
                 res.status(201).json(new Response(false, "Rota Inserida com sucesso", { "id_rota": router.dataValues.id }))

@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var _a, _b, _c;
 const sequelize_typescript_1 = require("sequelize-typescript");
 // let data_local = moment.tz(Date.now(), "America/Sao_Paulo").format("DD/MM/YYYY HH:mm:ss")
 let ProblemReally = class ProblemReally extends sequelize_typescript_1.Model {
@@ -45,15 +44,15 @@ __decorate([
 ], ProblemReally.prototype, "id_usuario", void 0);
 __decorate([
     sequelize_typescript_1.Column,
-    __metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+    __metadata("design:type", Date)
 ], ProblemReally.prototype, "horario_inicio", void 0);
 __decorate([
     sequelize_typescript_1.Column,
-    __metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+    __metadata("design:type", Date)
 ], ProblemReally.prototype, "horario_fim", void 0);
 __decorate([
     sequelize_typescript_1.Column,
-    __metadata("design:type", typeof (_c = typeof Boolean !== "undefined" && Boolean) === "function" ? _c : Object)
+    __metadata("design:type", Boolean)
 ], ProblemReally.prototype, "ocorrencia_finalizada", void 0);
 __decorate([
     sequelize_typescript_1.Column,

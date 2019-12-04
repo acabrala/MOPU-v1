@@ -1,6 +1,5 @@
 import * as nodemailer from 'nodemailer';
 
-
 class Mail {
 
     constructor(
@@ -26,8 +25,7 @@ class Mail {
         })
 
         transporter.sendMail(mailOptions, (error, info) => {
-            console.log('teste');
-
+            
             if(error) {
                 console.log(error);
                 
@@ -38,7 +36,6 @@ class Mail {
                 return "Email enviado com sucesso";
             }
         })
-
     }
 }
 export default new Mail;

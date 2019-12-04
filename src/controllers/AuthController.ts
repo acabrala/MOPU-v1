@@ -9,7 +9,6 @@ import { RoutesDay } from "../model/DiasRotas";
 import { RoutesDescriptions } from "../model/DescricaoRotas";
 import * as  uuid from 'uuid/v4';
 
-
 export class AuthController {
 
     private userRepository: UserRepository;
@@ -21,17 +20,16 @@ export class AuthController {
     getUser = async (req, res) => {
 
         try {    
-        
-            const user = await this.userRepository.getUserByEmail(req.body)
+            
             if(req.body.email == null){
+                console.log("sousa")
                return res.json({anonimo: true,
                                 id_anonimo: uuid()})
             }
-
-            console.log(user == null);
+            const user = await this.userRepository.getUserByEmail(req.body)
+            
             
             if (user == null) {
-                console.log('aaa');
                 
                 return res.status(227).json(new Response(true, "Usuario não localizado em nosso banco de dados", null))
             }
@@ -44,8 +42,6 @@ export class AuthController {
             }
 
             const routers = await this.userRepository.getUserData(user.dataValues.id_user, LinesRoutes, RoutesDay, RoutesDescriptions)
-    
-            
 
             delete user.dataValues.senha
             delete user.dataValues.data_criacao
@@ -59,6 +55,8 @@ export class AuthController {
                 .header({ "x-auth-token": token })
                 .json(new Response(false, "Usuario logado com sucesso", user))
         } catch (e) {
+            console.log(e);
+            
             return res.status(422).json(new Response(true, e.message, null))
         }
     }
@@ -100,8 +98,6 @@ export class AuthController {
                 const token = user.generateAuthToken();
 
                 const routers = await this.userRepository.getUserData(user.dataValues.id_user, LinesRoutes, RoutesDay, RoutesDescriptions)
-    
-            
 
                 delete user.dataValues.senha
                 delete user.dataValues.data_criacao
@@ -147,4 +143,3 @@ export class AuthController {
         }
     }
 }
-

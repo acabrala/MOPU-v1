@@ -20,48 +20,22 @@ __decorate([
 __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)
-], Mobile.prototype, "fabricante", void 0);
-__decorate([
-    sequelize_typescript_1.Column,
-    __metadata("design:type", String)
-], Mobile.prototype, "modelo", void 0);
-__decorate([
-    sequelize_typescript_1.Column,
-    __metadata("design:type", String)
-], Mobile.prototype, "versao_so", void 0);
+], Mobile.prototype, "id_user", void 0);
 __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", Number)
-], Mobile.prototype, "so", void 0);
-__decorate([
-    sequelize_typescript_1.CreatedAt,
-    sequelize_typescript_1.Column,
-    __metadata("design:type", Date)
-], Mobile.prototype, "data_criacao", void 0);
-__decorate([
-    sequelize_typescript_1.Column,
-    __metadata("design:type", String)
-], Mobile.prototype, "imei", void 0);
-__decorate([
-    sequelize_typescript_1.Unique,
-    sequelize_typescript_1.Column,
-    __metadata("design:type", String)
-], Mobile.prototype, "serial", void 0);
+], Mobile.prototype, "stop_id", void 0);
 __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", Number)
-], Mobile.prototype, "sim_card", void 0);
+], Mobile.prototype, "tempo", void 0);
 __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)
-], Mobile.prototype, "versao_app", void 0);
-__decorate([
-    sequelize_typescript_1.Column({ defaultValue: false }),
-    __metadata("design:type", Boolean)
-], Mobile.prototype, "is_anonimo", void 0);
+], Mobile.prototype, "partida", void 0);
 Mobile = __decorate([
     sequelize_typescript_1.Table({
-        tableName: "mobile"
+        tableName: "ponto_time"
     })
 ], Mobile);
 exports.Mobile = Mobile;

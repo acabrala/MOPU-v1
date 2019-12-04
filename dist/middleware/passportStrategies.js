@@ -61,15 +61,12 @@ function initializeGoogleStrategy(passport) {
                     return done(null, user);
                 }
                 user['is_google'] = true;
-                console.log(user);
                 return done(null, user);
             }).catch(err => {
-                console.log(err);
                 done(err, null);
             });
         }
         catch (e) {
-            console.log(e);
             done(e, null);
         }
     }));
@@ -94,12 +91,10 @@ function initializeTwitterStrategy(passport) {
                 user['is_twitter'] = true;
                 return done(null, user);
             }).catch(err => {
-                console.log(err);
                 done(err, null);
             });
         }
         catch (e) {
-            console.log(e);
             done(e, null);
         }
     }));

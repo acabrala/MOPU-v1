@@ -14,8 +14,6 @@ import { MobileController } from "../controllers/MobileController";
 import { AvatarController } from "../controllers/AvatarController";
 import { LinhasController } from "../controllers/LinhasController";
 
-import { Socket } from '../App'; 
-
 export default class Router {
 
     private authController: AuthController;
@@ -79,7 +77,6 @@ export default class Router {
 
     public startWith(app) {
 
-
         //Autenticação Email e Senha e Redes Sociais
         app.route(this.FACEBOOK_AUTH_URL).post(passport.authenticate('facebook-token'), this.authController.getFacebookUser)
         app.route(this.GOOGLE_AUTH_URL).post(passport.authenticate('google-token'), this.authController.getGoogleUser)
@@ -87,7 +84,7 @@ export default class Router {
         app.route(this.AUTH_URL).post(passport.authenticate('anonymous'), this.authController.getUser);
 
         //Reset de senha usuário
-        app.route(this.RESETAR_SENHA).put(this.userController.forgotUser);
+        app.route(this.RESETAR_SENHA).patch(this.userController.forgotUser);
         app.route(this.VERIFICAR_CODIGO).post(this.userController.verifyToken)
         app.route(this.ALTERAR_SENHA).post(this.userController.resetPassword)
 
@@ -96,8 +93,8 @@ export default class Router {
         app.route(this.REGISTER_URL).post(this.userController.createUser);
 
         //ATUALIZACAO USUARIO
-        app.route(this.UPDATE_USER_URL).put(this.userController.updateUser)
-        app.route(this.UPDATE_PASSWORD_URL).put(this.userController.changePasswordUser)
+        app.route(this.UPDATE_USER_URL).patch(this.userController.updateUser)
+        app.route(this.UPDATE_PASSWORD_URL).patch(this.userController.changePasswordUser)
 
         //Estacao
         app.route(this.ESTACAO_URL).all(authVerify).post(this.estacaoController.createNewStation);
@@ -121,7 +118,6 @@ export default class Router {
         //Problemas
         app.route(this.RELATAR_PROBLEMA).post(this.problemaController.createNewProblem)
         app.route(this.PROBLEMAS_USER).post(this.problemaController.getProblemsUser)
-
 
         //Mobile
         app.route(this.GERAR_TERMINAL).post(this.mobileController.gerarMobile);

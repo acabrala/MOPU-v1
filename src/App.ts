@@ -31,7 +31,6 @@ import { LinhasRepository } from './repository/LinhasRepository';
 import { LinhasController } from './controllers/LinhasController';
 import ProblemaReal from './model/ProblemaReal';
 
-
 export const Passport = passport;
 export const Socket = socketio;
 
@@ -65,7 +64,6 @@ export class App {
                 this.io.on('connect', (socket: any) => {
                     console.log("se pa foi")
 
-
                     const changeStream = ProblemaReal.watch();
                     changeStream.on('change', next => {
                         let data_incidente = next.fullDocument.horario_ocorrencia
@@ -92,9 +90,6 @@ export class App {
 
                         socket.emit('incidentes-geral', teste)
                     }
-
-
-
 
                     socket.on('sousa', ((msg) => {
                         console.log(msg)

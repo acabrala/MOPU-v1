@@ -18,14 +18,13 @@ class AuthController {
     constructor(userRepository) {
         this.getUser = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
-                const user = yield this.userRepository.getUserByEmail(req.body);
                 if (req.body.email == null) {
+                    console.log("sousa");
                     return res.json({ anonimo: true,
                         id_anonimo: uuid() });
                 }
-                console.log(user == null);
+                const user = yield this.userRepository.getUserByEmail(req.body);
                 if (user == null) {
-                    console.log('aaa');
                     return res.status(227).json(new Response_1.Response(true, "Usuario não localizado em nosso banco de dados", null));
                 }
                 const isValid = yield user.isValidPassword(req.body.senha);
@@ -44,6 +43,7 @@ class AuthController {
                     .json(new Response_1.Response(false, "Usuario logado com sucesso", user));
             }
             catch (e) {
+                console.log(e);
                 return res.status(422).json(new Response_1.Response(true, e.message, null));
             }
         });

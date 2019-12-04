@@ -59,7 +59,6 @@ class UserRepository {
         this.alreadyHasFacebookAccount = (authUser) => __awaiter(this, void 0, void 0, function* () {
             let id = authUser.id_user;
             authUser.senha = '123456';
-            console.log(authUser);
             let user = yield User_1.User.findOne({
                 where: {
                     [sequelize_1.Op.and]: [
@@ -77,11 +76,15 @@ class UserRepository {
             }
         });
         this.createUser = (user) => __awaiter(this, void 0, void 0, function* () {
+            let email = user.email.toLowerCase();
+            delete user.email;
+            user.email = email;
+            console.log(email);
             return yield User_1.User.create(user);
         });
         this.updateUser = (user) => __awaiter(this, void 0, void 0, function* () {
+            console.log(user);
             let id_user = user.id_user;
-            delete user['id_user'];
             return yield User_1.User.update(user, {
                 where: { id_user: id_user }
             });
@@ -95,15 +98,16 @@ class UserRepository {
             let idUser = id.id;
             return yield User_1.User.findById(idUser);
         });
-        this.getUserByEmail = (email) => __awaiter(this, void 0, void 0, function* () {
-            let emailUser = email.email;
+        this.getUserByEmail = (usuario) => __awaiter(this, void 0, void 0, function* () {
+            let emailUser = usuario.email.toLowerCase();
+            console.log(emailUser);
+            console.log(typeof emailUser);
             return yield User_1.User.findOne({
                 where: { email: emailUser },
                 include: [Favoritos_1.Favoritos]
             });
         });
         this.getUserData = (id, Rotas_linhas, Rotas_dias, Rotas_descricao) => __awaiter(this, void 0, void 0, function* () {
-            console.log(id);
             let rotas_user = Rotas_1.Routes.findAll({
                 where: { id_usuario: id },
                 include: [Rotas_descricao, Rotas_dias, Rotas_linhas]
@@ -176,7 +180,6 @@ class UserRepository {
                             message: "Código digitado válido",
                             data: { password_token: tokenPassReset }
                         };
-                        console.log('response');
                         return Promise.resolve(responseSucess);
                     }).catch((err) => {
                         return "Não localizamos este e-mail";

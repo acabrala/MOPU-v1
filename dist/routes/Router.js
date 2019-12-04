@@ -51,14 +51,14 @@ class Router {
         app.route(this.TWITTER_AUTH_URL).post(passport.authenticate('twitter-token'), this.authController.getTwitterUser);
         app.route(this.AUTH_URL).post(passport.authenticate('anonymous'), this.authController.getUser);
         //Reset de senha usuário
-        app.route(this.RESETAR_SENHA).put(this.userController.forgotUser);
+        app.route(this.RESETAR_SENHA).patch(this.userController.forgotUser);
         app.route(this.VERIFICAR_CODIGO).post(this.userController.verifyToken);
         app.route(this.ALTERAR_SENHA).post(this.userController.resetPassword);
         // REGISTER
         app.route(this.REGISTER_URL).post(this.userController.createUser);
         //ATUALIZACAO USUARIO
-        app.route(this.UPDATE_USER_URL).put(this.userController.updateUser);
-        app.route(this.UPDATE_PASSWORD_URL).put(this.userController.changePasswordUser);
+        app.route(this.UPDATE_USER_URL).patch(this.userController.updateUser);
+        app.route(this.UPDATE_PASSWORD_URL).patch(this.userController.changePasswordUser);
         //Estacao
         app.route(this.ESTACAO_URL).all(authverify_1.default).post(this.estacaoController.createNewStation);
         app.route(this.ESTACAO_URL_GET).get(this.estacaoController.getStation);
