@@ -91,6 +91,14 @@ export class App {
                         socket.emit('incidentes-geral', teste)
                     }
 
+                    socket.on('votacao', (msg) => {
+
+                        let quantidade_relatada = msg + msg
+
+                        const iteracao = ProblemaReal.update({ linha_problema: msg.linha_problema, local_problema: msg.local_problema }, { $set: { quantidade_relatada: quantidade_relatada } })
+
+                    })
+
                     socket.on('sousa', ((msg) => {
                         console.log(msg)
                     }))

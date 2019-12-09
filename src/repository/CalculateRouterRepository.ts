@@ -9,8 +9,7 @@ import * as utf8 from 'utf8'
 export class CalculateRouterRepository {
 
     tracingRouter = async (geolocate) => {
-
-        
+    
         let url = url_default(geolocate.origem, geolocate.destino, key.key)
         if (geolocate.caminhada == 'true'){
             url +`&transit_routing_preference=less_walking`;
@@ -22,7 +21,6 @@ export class CalculateRouterRepository {
             let departure_time = Date.parse(geolocate.data_partida) / 1000
             let teste1 = `&departure_time=${departure_time}`
             url_final = vtnc.concat(teste1)
-
 
         } else {
 

@@ -64,7 +64,7 @@ class App {
                         const changeStream = ProblemaReal_1.default.watch();
                         changeStream.on('change', next => {
                             let data_incidente = next.fullDocument.horario_ocorrencia;
-                            console.log(data_incidente);
+                            console.log(next);
                             socket.emit('incidentes', next.fullDocument);
                         });
                         geral();
