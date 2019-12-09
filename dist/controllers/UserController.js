@@ -16,11 +16,8 @@ class UserController {
                 console.log('oba, chegou');
                 const isUSer = yield this.userRepository.getUserByEmail(req.body);
                 if (isUSer) {
-                    console.log('deu aqui');
                     return res.status(229).json(new Response_1.Response(false, "Email já está sendo utlizado.", false));
                 }
-                req.body.email.toLowerCase();
-                console.log(req.body.email);
                 const user = yield this.userRepository.createUser(req.body);
                 res.status(201).json(new Response_1.Response(false, "Usuário criado com sucesso.", user));
             }
