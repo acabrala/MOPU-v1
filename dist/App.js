@@ -64,7 +64,7 @@ class App {
                         const changeStream = ProblemaReal_1.default.watch();
                         changeStream.on('change', next => {
                             let data_incidente = next.fullDocument.horario_ocorrencia;
-                            console.log(next);
+                            console.log(data_incidente);
                             socket.emit('incidentes', next.fullDocument);
                         });
                         geral();
@@ -82,6 +82,18 @@ class App {
                                 ]);
                                 console.log(teste);
                                 socket.emit('incidentes-geral', teste);
+                            });
+                        }
+                        socket.on('votacao', (msg) => {
+                            votar(msg);
+                        });
+                        function votar(id) {
+                            return __awaiter(this, void 0, void 0, function* () {
+                                console.log(id);
+                                const aaa = yield ProblemaReal_1.default.find({ _id: (id.id_incidente) });
+                                const newLength = aaa[0]['quantidade_relatada'] + 1;
+                                const iteracao = ProblemaReal_1.default.update({ _id: (id.id_incidente) }, { $set: { quantidade_relatada: newLength } });
+                                console.log(iteracao);
                             });
                         }
                         socket.on('sousa', ((msg) => {

@@ -92,12 +92,20 @@ export class App {
                     }
 
                     socket.on('votacao', (msg) => {
-
-                        let quantidade_relatada = msg + msg
-
-                        const iteracao = ProblemaReal.update({ linha_problema: msg.linha_problema, local_problema: msg.local_problema }, { $set: { quantidade_relatada: quantidade_relatada } })
-
+			
+			votar(msg)
                     })
+
+		async function votar(id) {
+	
+		console.log(id)		
+		const aaa = await ProblemaReal.find({_id:(id.id_incidente)});
+
+		const newLength = aaa[0]['quantidade_relatada'] + 1;
+
+		const iteracao = ProblemaReal.update({_id:(id.id_incidente)}, {$set: {quantidade_relatada: newLength}})
+		console.log(iteracao)
+		}	
 
                     socket.on('sousa', ((msg) => {
                         console.log(msg)
