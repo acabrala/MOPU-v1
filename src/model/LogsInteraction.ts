@@ -10,15 +10,11 @@ const InteractionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    data_interação: {
+    data_interacao: {
         type: String,
         required: true 
     },
-    is_true: {
-        type: Boolean,
-        required: true
-    },
-    is_false: {
+    like: {
         type: Boolean,
         required: true
     }

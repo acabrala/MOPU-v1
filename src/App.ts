@@ -30,6 +30,7 @@ import * as socketio from 'socket.io'
 import { LinhasRepository } from './repository/LinhasRepository';
 import { LinhasController } from './controllers/LinhasController';
 import ProblemaReal from './model/ProblemaReal';
+import Interaction from './model/LogsInteraction';
 
 export const Passport = passport;
 export const Socket = socketio;
@@ -103,9 +104,17 @@ export class App {
 
 		const newLength = aaa[0]['quantidade_relatada'] + 1;
 
-		const iteracao = ProblemaReal.update({_id:(id.id_incidente)}, {$set: {quantidade_relatada: newLength}})
-		console.log(iteracao)
-		}	
+        const iteracao = ProblemaReal.update({_id:(id.id_incidente)}, {$set: {quantidade_relatada: newLength}})
+        
+        const user_interaction = {
+            id_usuario: id,
+            id_incidente: id.id_incidente,
+            data_interacao: new Date,
+            like: id.like 
+        }
+            Interaction.create(user_interaction)
+
+    }	
 
                     socket.on('sousa', ((msg) => {
                         console.log(msg)
