@@ -23,7 +23,7 @@ export class ProblemReally extends Model<ProblemReally> {
     local_problema: string;
 
     @Column
-    motivo: number;
+    motivo: string;
     
     @Column
     submotivo: string;
