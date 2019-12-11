@@ -58,6 +58,7 @@ export class ProblemaRepositoty {
 
                     Problema.create(problema)
                     Incidentes.create(problema)
+                    ProblemaReal.create(problema)
 
                 }
             } else {

@@ -23,6 +23,9 @@ export class Incidentes extends Model<Incidentes> {
     linha_problema: string;
 
     @Column
+    estacao_problema: string;
+
+    @Column
     horario_ocorrencia: string;
 
     @Column

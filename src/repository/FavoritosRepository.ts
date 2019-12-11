@@ -2,7 +2,6 @@ import { Favoritos } from "../model/Favoritos";
 
 export class FavoritosRepository {
 
-
     createFavorites = async (favoritos) => {
 
         return await Favoritos.create(favoritos)
