@@ -31,6 +31,8 @@ import { LinhasRepository } from './repository/LinhasRepository';
 import { LinhasController } from './controllers/LinhasController';
 import ProblemaReal from './model/ProblemaReal';
 import Interaction from './model/LogsInteraction';
+import { LogsInteracao } from './model/LogsInteracao';
+
 
 export const Passport = passport;
 export const Socket = socketio;
@@ -113,6 +115,7 @@ export class App {
             like: id.like 
         }
             Interaction.create(user_interaction)
+            LogsInteracao.create(user_interaction)
 
     }	
 
