@@ -71,7 +71,6 @@ export class App {
                     const changeStream = ProblemaReal.watch();
                     changeStream.on('change', next => {
                         let data_incidente = next.fullDocument.horario_ocorrencia
-                        console.log(data_incidente)
                         socket.emit('incidentes', next.fullDocument)
 
                     })
@@ -90,6 +89,7 @@ export class App {
                                 }
                             }
                         ])
+
                         verificarVotacao(teste)
                         socket.emit('incidentes-geral', teste)
                     }
@@ -101,21 +101,35 @@ export class App {
                     })
 
                     async function verificarVotacao(teste) {
-                         teste.map(value => {
-                             console.log(value)
+                         const ids = teste.map(value => {
+                             return String(value._id)
                          })
+
+
+	
                     
-                    // socket.on('verificar-votacao', (user) =>{
+                   socket.on('verificar-votacao', (user) =>{
 
-                    //     Interaction.find({id_usuario: user})
-
-                    //     socket.emit(user, parameters)
-                    // });
+			vaaai(user, ids)
+                  
+                   //socket.emit(user, parameters)
+                   });
                 }
+
+		async function vaaai(id, ids){
+			console.log(ids)
+		
+		
+		
+                   let teste2 = await Interaction.find({id_usuario: {$in:[id]}, id_incidente: {$in:ids}})
+		console.log(teste2)
+
+		socket.emit(id, teste2)
+
+		}
 
                     async function votar(id) {
 
-                        console.log(id)
                         const aaa = await ProblemaReal.find({ _id: (id.id_incidente) });
 
                         const newLength = aaa[0]['quantidade_relatada'] + 1;
