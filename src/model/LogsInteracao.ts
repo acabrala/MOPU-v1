@@ -23,5 +23,4 @@ export class LogsInteracao extends Model<LogsInteracao> {
     @Column
     like: Boolean
 
-
 }

@@ -32,6 +32,7 @@ import { LinhasController } from './controllers/LinhasController';
 import ProblemaReal from './model/ProblemaReal';
 import Interaction from './model/LogsInteraction';
 import { LogsInteracao } from './model/LogsInteracao';
+import { assertValidSDL } from 'graphql/validation/validate';
 
 
 export const Passport = passport;
@@ -89,35 +90,48 @@ export class App {
                                 }
                             }
                         ])
-                        console.log(teste)
-
+                        verificarVotacao(teste)
                         socket.emit('incidentes-geral', teste)
                     }
 
                     socket.on('votacao', (msg) => {
-			
-			votar(msg)
+
+                        votar(msg)
+
                     })
 
-		async function votar(id) {
-	
-		console.log(id)		
-		const aaa = await ProblemaReal.find({_id:(id.id_incidente)});
+                    async function verificarVotacao(teste) {
+                         teste.map(value => {
+                             console.log(value)
+                         })
+                    
+                    // socket.on('verificar-votacao', (user) =>{
 
-		const newLength = aaa[0]['quantidade_relatada'] + 1;
+                    //     Interaction.find({id_usuario: user})
 
-        const iteracao = ProblemaReal.update({_id:(id.id_incidente)}, {$set: {quantidade_relatada: newLength}})
-        
-        const user_interaction = {
-            id_usuario: id,
-            id_incidente: id.id_incidente,
-            data_interacao: new Date,
-            like: id.like 
-        }
-            Interaction.create(user_interaction)
-            LogsInteracao.create(user_interaction)
+                    //     socket.emit(user, parameters)
+                    // });
+                }
 
-    }	
+                    async function votar(id) {
+
+                        console.log(id)
+                        const aaa = await ProblemaReal.find({ _id: (id.id_incidente) });
+
+                        const newLength = aaa[0]['quantidade_relatada'] + 1;
+
+                        const iteracao = ProblemaReal.update({ _id: (id.id_incidente) }, { $set: { quantidade_relatada: newLength } })
+
+                        const user_interaction = {
+                            id_usuario: id,
+                            id_incidente: id.id_incidente,
+                            data_interacao: new Date,
+                            like: id.like
+                        }
+                        Interaction.create(user_interaction)
+                        LogsInteracao.create(user_interaction)
+
+                    }
 
                     socket.on('sousa', ((msg) => {
                         console.log(msg)
