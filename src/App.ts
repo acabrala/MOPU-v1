@@ -100,14 +100,9 @@ export class App {
 
                     })
 
-                   
+                    socket.on('verificar-votacao', async(user) => {
 
-
-	
-                    
-                   socket.on('verificar-votacao', (user) =>{
-
-			const teste = return ProblemaReal.aggregate([
+                        const teste = await ProblemaReal.aggregate([
                             {
                                 $lookup:
                                 {
@@ -119,31 +114,27 @@ export class App {
                             }
                         ])
 
-			teste.map( abcd => {
+                       const ids =  teste.map(item => {
+                           return item._id
+                        })
 
-			const ids = return abcd._id
-			
-			})
+                        vaaai(user, ids)
+
+                        //socket.emit(user, parameters)
+                    });
+
+
+                    async function vaaai(id, ids) {
+                        console.log(ids)
 
 
 
-			vaaai(user, ids)
-                  
-                   //socket.emit(user, parameters)
-                   });
-                }
+                        let teste2 = await Interaction.find({ id_usuario: { $in: [id] }, id_incidente: { $in: ids } })
+                        console.log(teste2)
 
-		async function vaaai(id, ids){
-			console.log(ids)
-		
-		
-		
-                   let teste2 = await Interaction.find({id_usuario: {$in:[id]}, id_incidente: {$in:ids}})
-		console.log(teste2)
+                        socket.emit(id, teste2)
 
-		socket.emit(id, teste2)
-
-		}
+                    }
 
                     async function votar(id) {
 
@@ -190,7 +181,7 @@ export class App {
     private createServer(): void {
         this.server = createServer(this.app);
     }
- 
+
     private middleware(): void {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
