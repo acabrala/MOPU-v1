@@ -90,7 +90,7 @@ export class App {
                             }
                         ])
 
-                        verificarVotacao(teste)
+
                         socket.emit('incidentes-geral', teste)
                     }
 
@@ -100,15 +100,32 @@ export class App {
 
                     })
 
-                    async function verificarVotacao(teste) {
-                         const ids = teste.map(value => {
-                             return String(value._id)
-                         })
+                   
 
 
 	
                     
                    socket.on('verificar-votacao', (user) =>{
+
+			const teste = return ProblemaReal.aggregate([
+                            {
+                                $lookup:
+                                {
+                                    from: "linhas",
+                                    localField: "local_problema",
+                                    foreignField: "nome",
+                                    as: "localizacao"
+                                }
+                            }
+                        ])
+
+			teste.map( abcd => {
+
+			const ids = return abcd._id
+			
+			})
+
+
 
 			vaaai(user, ids)
                   
@@ -173,7 +190,7 @@ export class App {
     private createServer(): void {
         this.server = createServer(this.app);
     }
-
+ 
     private middleware(): void {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));

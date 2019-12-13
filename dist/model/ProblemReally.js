@@ -44,11 +44,11 @@ __decorate([
 ], ProblemReally.prototype, "id_usuario", void 0);
 __decorate([
     sequelize_typescript_1.Column,
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], ProblemReally.prototype, "horario_inicio", void 0);
 __decorate([
     sequelize_typescript_1.Column,
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], ProblemReally.prototype, "horario_fim", void 0);
 __decorate([
     sequelize_typescript_1.Column,

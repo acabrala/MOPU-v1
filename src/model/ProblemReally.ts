@@ -32,10 +32,10 @@ export class ProblemReally extends Model<ProblemReally> {
     id_usuario: string;
 
     @Column
-    horario_inicio: Date;
+    horario_inicio: string;
 
     @Column
-    horario_fim: Date;
+    horario_fim: string;
 
     @Column
     ocorrencia_finalizada: Boolean

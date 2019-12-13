@@ -36,7 +36,7 @@ __decorate([
 __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)
-], Incidentes.prototype, "estacao_problema", void 0);
+], Incidentes.prototype, "local_problema", void 0);
 __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)

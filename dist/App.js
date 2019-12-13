@@ -81,96 +81,108 @@ class App {
                                         }
                                     }
                                 ]);
-                                verificarVotacao(teste);
                                 socket.emit('incidentes-geral', teste);
                             });
                         }
                         socket.on('votacao', (msg) => {
                             votar(msg);
                         });
-                        function verificarVotacao(teste) {
-                            return __awaiter(this, void 0, void 0, function* () {
-                                const ids = teste.map(value => {
-                                    return String(value._id);
-                                });
-                                socket.on('verificar-votacao', (user) => {
-                                    vaaai(user, ids);
-                                    //socket.emit(user, parameters)
-                                });
+                        socket.on('verificar-votacao', (user) => {
+                            const teste = ;
+                            return ProblemaReal_1.default.aggregate([
+                                {
+                                    $lookup: {
+                                        from: "linhas",
+                                        localField: "local_problema",
+                                        foreignField: "nome",
+                                        as: "localizacao"
+                                    }
+                                }
+                            ]);
+                            teste.map(abcd => {
+                                const ids = ;
+                                return abcd._id;
                             });
-                        }
-                        function vaaai(id, ids) {
-                            return __awaiter(this, void 0, void 0, function* () {
-                                console.log(ids);
-                                let teste2 = yield LogsInteraction_1.default.find({ id_usuario: { $in: [id] }, id_incidente: { $in: ids } });
-                                console.log(teste2);
-                                socket.emit(id, teste2);
-                            });
-                        }
-                        function votar(id) {
-                            return __awaiter(this, void 0, void 0, function* () {
-                                const aaa = yield ProblemaReal_1.default.find({ _id: (id.id_incidente) });
-                                const newLength = aaa[0]['quantidade_relatada'] + 1;
-                                const iteracao = ProblemaReal_1.default.update({ _id: (id.id_incidente) }, { $set: { quantidade_relatada: newLength } });
-                                const user_interaction = {
-                                    id_usuario: id,
-                                    id_incidente: id.id_incidente,
-                                    data_interacao: new Date,
-                                    like: id.like
-                                };
-                                LogsInteraction_1.default.create(user_interaction);
-                                LogsInteracao_1.LogsInteracao.create(user_interaction);
-                            });
-                        }
-                        socket.on('sousa', ((msg) => {
-                            console.log(msg);
-                        }));
-                    });
+                            vaaai(user, ids);
+                            //socket.emit(user, parameters)
+                        });
+                    }, function vaaai(id, ids) {
+                        return __awaiter(this, void 0, void 0, function* () {
+                            console.log(ids);
+                            let teste2 = yield LogsInteraction_1.default.find({ id_usuario: { $in: [id] }, id_incidente: { $in: ids } });
+                            console.log(teste2);
+                            socket.emit(id, teste2);
+                        });
+                    }, function votar(id) {
+                        return __awaiter(this, void 0, void 0, function* () {
+                            const aaa = yield ProblemaReal_1.default.find({ _id: (id.id_incidente) });
+                            const newLength = aaa[0]['quantidade_relatada'] + 1;
+                            const iteracao = ProblemaReal_1.default.update({ _id: (id.id_incidente) }, { $set: { quantidade_relatada: newLength } });
+                            const user_interaction = {
+                                id_usuario: id,
+                                id_incidente: id.id_incidente,
+                                data_interacao: new Date,
+                                like: id.like
+                            };
+                            LogsInteraction_1.default.create(user_interaction);
+                            LogsInteracao_1.LogsInteracao.create(user_interaction);
+                        });
+                    }, socket.on('sousa', ((msg) => {
+                        console.log(msg);
+                    })));
                 });
             }
-            catch (e) {
-                console.log("FATAL ERROR: COULD NOT CONNECT TO DATABASE.");
-                console.log("ERROR:" + e);
-            }
+            finally { }
+            ;
         });
     }
-    socketConnect() {
-        this.io = socketio(this.server);
-    }
-    createApp() {
-        this.app = express();
-    }
-    config() {
-        this.port = process.env.PORT || App.PORT;
-    }
-    createServer() {
-        this.server = http_1.createServer(this.app);
-    }
-    middleware() {
-        this.app.use(bodyParser.json());
-        this.app.use(bodyParser.urlencoded({ extended: false }));
-        this.app.use(passport.initialize());
-        this.app.use(passport.session());
-        const routerRepository = new RouterRepository_1.RouterRepository();
-        const problemaRepository = new ProblemaRepository_1.ProblemaRepositoty();
-        const userRepository = new UserRepository_1.UserRepository();
-        const estacaoRepository = new EstacaoRepository_1.EstacaoRepository();
-        const estacaoAreaRepository = new EstacaoAreaRepository_1.EstacaoAreaRepository();
-        const calculateRouterRepository = new CalculateRouterRepository_1.CalculateRouterRepository();
-        const linhasTrilhosRepository = new LinhasTrilhosRepository_1.LinhasTrilhosRepository();
-        const favoritosRepository = new FavoritosRepository_1.FavoritosRepository();
-        const mobileRepository = new MobileRepository_1.MobileRepository();
-        const avatarRepository = new AvatarRepository_1.AvatarRepository();
-        const linhasRepository = new LinhasRepository_1.LinhasRepository();
-        new Router_1.default(new AuthController_1.AuthController(userRepository), new UserController_1.UserController(userRepository), new EstacaoController_1.EstacaoController(estacaoRepository), new EstacaoAreaController_1.EstacaoAreaController(estacaoAreaRepository), new CalculateRouterController_1.CalculateRouterController(calculateRouterRepository, linhasTrilhosRepository), new RouterUserController_1.RouterUserController(routerRepository), new FavoritosController_1.FavoritosController(favoritosRepository), new ProblemaController_1.ProblemaController(problemaRepository), new MobileController_1.MobileController(mobileRepository), new AvatarController_1.AvatarController(avatarRepository), new LinhasController_1.LinhasController(linhasRepository))
-            .startWith(this.app);
-    }
-    initializeStrategies() {
-        _initialize_1.initializeStrategies(passport);
-    }
-    getApp() {
-        return this.app;
+    catch(e) {
+        console.log("FATAL ERROR: COULD NOT CONNECT TO DATABASE.");
+        console.log("ERROR:" + e);
     }
 }
 App.PORT = 3000;
 exports.App = App;
+socketConnect();
+void {
+    this: .io = socketio(this.server)
+};
+createApp();
+void {
+    this: .app = express()
+};
+config();
+void {
+    this: .port = process.env.PORT || App.PORT
+};
+http_1.createServer();
+void {
+    this: .server = http_1.createServer(this.app)
+};
+middleware();
+void {
+    this: .app.use(bodyParser.json()),
+    this: .app.use(bodyParser.urlencoded({ extended: false })),
+    this: .app.use(passport.initialize()),
+    this: .app.use(passport.session()),
+    const: routerRepository = new RouterRepository_1.RouterRepository(),
+    const: problemaRepository = new ProblemaRepository_1.ProblemaRepositoty(),
+    const: userRepository = new UserRepository_1.UserRepository(),
+    const: estacaoRepository = new EstacaoRepository_1.EstacaoRepository(),
+    const: estacaoAreaRepository = new EstacaoAreaRepository_1.EstacaoAreaRepository(),
+    const: calculateRouterRepository = new CalculateRouterRepository_1.CalculateRouterRepository(),
+    const: linhasTrilhosRepository = new LinhasTrilhosRepository_1.LinhasTrilhosRepository(),
+    const: favoritosRepository = new FavoritosRepository_1.FavoritosRepository(),
+    const: mobileRepository = new MobileRepository_1.MobileRepository(),
+    const: avatarRepository = new AvatarRepository_1.AvatarRepository(),
+    const: linhasRepository = new LinhasRepository_1.LinhasRepository(),
+    new: Router_1.default(new AuthController_1.AuthController(userRepository), new UserController_1.UserController(userRepository), new EstacaoController_1.EstacaoController(estacaoRepository), new EstacaoAreaController_1.EstacaoAreaController(estacaoAreaRepository), new CalculateRouterController_1.CalculateRouterController(calculateRouterRepository, linhasTrilhosRepository), new RouterUserController_1.RouterUserController(routerRepository), new FavoritosController_1.FavoritosController(favoritosRepository), new ProblemaController_1.ProblemaController(problemaRepository), new MobileController_1.MobileController(mobileRepository), new AvatarController_1.AvatarController(avatarRepository), new LinhasController_1.LinhasController(linhasRepository))
+        .startWith(this.app)
+};
+_initialize_1.initializeStrategies();
+void {};
+getApp();
+express.Application;
+{
+    return this.app;
+}

@@ -29,12 +29,12 @@ const ProblemaRealSchema = new mongoose.Schema({
         required: true
     },
     horario_inicio: {
-        type: Date,
+        type: String,
         required: true,
         default: data_local
     },
     horario_fim: {
-        type: Date,
+        type: String,
         required: false
     },
     ocorrencia_finalizada: {
