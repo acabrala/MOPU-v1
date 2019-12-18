@@ -29,11 +29,15 @@ export class ProblemaRepositoty {
 
         } else {
 
-            if (problema.anonimo === "true") {
+            if (problema.anonimo === true) {
 
                 const problemas = await Problema.find({ local_problema: problema.local_problema, horario_ocorrencia: { $gt: data_atual } })
 
+
+		console.log(problemas.length)
                 if (problemas.length >= 3) {
+
+	
 
                     let problema_real = {
                         tipo_transporte: problema.tipo_transporte,
@@ -58,7 +62,7 @@ export class ProblemaRepositoty {
 
                     Problema.create(problema)
                     Incidentes.create(problema)
-                    ProblemaReal.create(problema)
+
 
                 }
             } else {
@@ -76,6 +80,8 @@ export class ProblemaRepositoty {
                     quantidade_relatada: 1
 
                 };
+
+                console.log(problema)
 
                 ProblemReally.create(problema_real)
                 Problema.create(problema)

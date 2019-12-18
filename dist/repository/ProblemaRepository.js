@@ -30,8 +30,9 @@ class ProblemaRepositoty {
                 return;
             }
             else {
-                if (problema.anonimo === "true") {
+                if (problema.anonimo === true) {
                     const problemas = yield Problema_1.default.find({ local_problema: problema.local_problema, horario_ocorrencia: { $gt: data_atual } });
+                    console.log(problemas.length);
                     if (problemas.length >= 3) {
                         let problema_real = {
                             tipo_transporte: problema.tipo_transporte,
@@ -53,7 +54,6 @@ class ProblemaRepositoty {
                     else {
                         Problema_1.default.create(problema);
                         Incidentes_1.Incidentes.create(problema);
-                        ProblemaReal_1.default.create(problema);
                     }
                 }
                 else {
@@ -69,6 +69,7 @@ class ProblemaRepositoty {
                         duracao_ocorrencia: null,
                         quantidade_relatada: 1
                     };
+                    console.log(problema);
                     ProblemReally_1.ProblemReally.create(problema_real);
                     Problema_1.default.create(problema);
                     Incidentes_1.Incidentes.create(problema);

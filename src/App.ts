@@ -66,7 +66,7 @@ export class App {
             this.server.listen(this.port, () => {
                 console.log('Running server on port %s', this.port);
                 this.io.on('connect', (socket: any) => {
-                    console.log("se pa foi")
+
 
                     const changeStream = ProblemaReal.watch();
                     changeStream.on('change', next => {
@@ -125,12 +125,9 @@ export class App {
 
 
                     async function vaaai(id, ids) {
-                        console.log(ids)
-
-
 
                         let teste2 = await Interaction.find({ id_usuario: { $in: [id] }, id_incidente: { $in: ids } })
-                        console.log(teste2)
+
 
                         socket.emit(id, teste2)
 
@@ -145,7 +142,7 @@ export class App {
                         const iteracao = ProblemaReal.update({ _id: (id.id_incidente) }, { $set: { quantidade_relatada: newLength } })
 
                         const user_interaction = {
-                            id_usuario: id,
+                            id_usuario: id.id_user,
                             id_incidente: id.id_incidente,
                             data_interacao: new Date,
                             like: id.like

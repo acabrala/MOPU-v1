@@ -16,8 +16,11 @@ export class Linhas extends Model<Linhas> {
     @Column
     numero_linha: string; 
 
-    @CreatedAt
+
     @Column
-    data_criacao: Date;
+    codigo_linha: string;
+
+    @Column
+    versao: string; 
 
 }

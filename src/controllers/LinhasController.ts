@@ -12,6 +12,8 @@ export class LinhasController {
     consultarlinhas = async (req,res) => {
         const linhas = await this.linhasRepository.getLinhas();
 
-        return res.status(201).json(new Response(false, "deu bom", linhas))
+	const teste = {'linhas': linhas, versao_server: linhas[0].versao.trim()}
+
+        return res.status(201).json(new Response(false, "deu bom", teste))
     }
 }

@@ -26,10 +26,13 @@ __decorate([
     __metadata("design:type", String)
 ], Linhas.prototype, "numero_linha", void 0);
 __decorate([
-    sequelize_typescript_1.CreatedAt,
     sequelize_typescript_1.Column,
-    __metadata("design:type", Date)
-], Linhas.prototype, "data_criacao", void 0);
+    __metadata("design:type", String)
+], Linhas.prototype, "codigo_linha", void 0);
+__decorate([
+    sequelize_typescript_1.Column,
+    __metadata("design:type", String)
+], Linhas.prototype, "versao", void 0);
 Linhas = __decorate([
     sequelize_typescript_1.Table({
         tableName: "linhas"
