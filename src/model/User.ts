@@ -65,6 +65,15 @@ export class User extends Model<User> {
     @Column
     imagem:string;
 
+    @Column
+    ultimo_login:string;
+
+    @Column
+    mobile_cadastro: number;
+
+    @Column
+    mobile_logado:number;
+
     @BeforeCreate
     static async hashPassword(instance: User) {
         const salt = await bcrypt.genSalt(10);
@@ -81,6 +90,6 @@ export class User extends Model<User> {
     }
 
     generateAuthToken() {
-        return jwt.sign({ _id: this.id }, "mkt#RPC2017@", { expiresIn: "1h" });
+        return jwt.sign({ _id: this.id }, "mkt#RPC2020@", { expiresIn: "1h" });
     }
 }
