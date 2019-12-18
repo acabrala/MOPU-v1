@@ -26,6 +26,8 @@ export class AuthController {
                return res.json({anonimo: true,
                                 id_anonimo: uuid()})
             }
+            console.log(req.body);
+            
             const user = await this.userRepository.getUserByEmail(req.body)
             
             
@@ -50,7 +52,7 @@ export class AuthController {
             const dataNascimento = dateformat(user.data_nascimento, "dd/mm/yyyy")
             user.dataValues.data_nascimento = dataNascimento
             user.dataValues['rota'] = routers
-            
+
             return res.status(200)
                 .header({ "x-auth-token": token })
                 .json(new Response(false, "Usuario logado com sucesso", user))
