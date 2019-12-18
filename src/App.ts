@@ -33,6 +33,7 @@ import ProblemaReal from './model/ProblemaReal';
 import Interaction from './model/LogsInteraction';
 import { LogsInteracao } from './model/LogsInteracao';
 import { assertValidSDL } from 'graphql/validation/validate';
+import BusVehicle from './model/BusVehicle';
 
 
 export const Passport = passport;
@@ -97,6 +98,28 @@ export class App {
                     socket.on('votacao', (msg) => {
 
                         votar(msg)
+
+                    })
+
+                    socket.on('onibus-prefixo', async(onibus) => {
+                        onibus.map(item => {
+                            let payload = {
+                                acessibilidade: null,
+                                ar_conficionado: null,
+                                usb: null,
+                                validador: null,
+                                wifi: null,
+                                prefixo: item.prefixo
+                            };
+
+                            BusVehicle.create(payload).then(result => {
+                                BusVehicle.find().then(fields => {
+                                    console.log(fields)
+                                });
+                            })
+                        });
+
+                   
 
                     })
 
