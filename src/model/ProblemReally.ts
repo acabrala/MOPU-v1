@@ -1,5 +1,3 @@
-import * as moment from 'moment-timezone'
-
 import { Table, Column, Model, DataType, AutoIncrement } from 'sequelize-typescript';
 // let data_local = moment.tz(Date.now(), "America/Sao_Paulo").format("DD/MM/YYYY HH:mm:ss")
 

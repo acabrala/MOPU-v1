@@ -4,6 +4,8 @@ import { Routes } from "../model/Rotas";
 import Mail from "../services/mail";
 import * as crypto from 'crypto';
 import { Favoritos } from "../model/Favoritos";
+import * as moment from 'moment-timezone';
+let data_local = moment.tz(Date.now(), "America/Sao_Paulo").format("DD/MM/YYYY HH:mm:ss")
 
 
 let dias_semana = ['segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado', 'domingo']
@@ -159,6 +161,10 @@ export class UserRepository {
             }
 
             return result;
+        });
+        let login = {ultimo_login: data_local};
+        User.update(login,
+             {where: {id_user: id}
         });
 
         return await rotas_user
