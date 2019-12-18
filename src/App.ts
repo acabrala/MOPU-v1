@@ -102,18 +102,12 @@ export class App {
                     })
 
                     socket.on('onibus-prefixo', async(onibus) => {
-                        onibus.map(item => {
-                            let payload = {
-                                acessibilidade: null,
-                                ar_conficionado: null,
-                                usb: null,
-                                validador: null,
-                                wifi: null,
-                                prefixo: item.prefixo
-                            };
-
-                            BusVehicle.create(payload).then(result => {
+                        onibus.onibus.map(item => {
+                           
+                            BusVehicle.create(item).then(result => {
                                 BusVehicle.find().then(fields => {
+
+                                    socket.emit(onibus.id_user, fields)
                                     console.log(fields)
                                 });
                             })
