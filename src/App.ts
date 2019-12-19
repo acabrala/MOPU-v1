@@ -102,12 +102,15 @@ export class App {
                     })
 
                     socket.on('onibus-prefixo', async(onibus) => {
+
+                        const onibusPrefixo = onibus.onibus.map(item => item.prefixo);
                         onibus.onibus.map(item => {
+
                            
                             BusVehicle.create(item).then(result => {
-                                BusVehicle.find().then(fields => {
+                                BusVehicle.find({prefixo: { $in :onibusPrefixo}}).then(fields => {
 
-                                    socket.emit(onibus.id_user, fields)
+                                    socket.emit(`${onibus.id_user}-prefixo`, fields)
                                     console.log(fields)
                                 });
                             })
