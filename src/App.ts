@@ -104,21 +104,26 @@ export class App {
                     socket.on('onibus-prefixo', async(onibus) => {
 
                         const onibusPrefixo = onibus.onibus.map(item => item.prefixo);
-                        onibus.onibus.map(item => {
+                        
+                        onibus.onibus.map(async item => {
 
                            
-                            BusVehicle.create(item).then(result => {
-                                BusVehicle.find({prefixo: { $in :onibusPrefixo}}).then(fields => {
+                           await BusVehicle.create(item)
 
-                                    socket.emit(`${onibus.id_user}-prefixo`, fields)
-                                    console.log(fields)
-                                });
-                            })
+                          
                         });
+
+                        const abc = await BusVehicle.find({prefixo: { $in :onibusPrefixo}})
+
+                        userBus(abc, onibus.id_user)
 
                    
 
-                    })
+                    });
+                    async function userBus(context, idUser){
+                        socket.emit(`${idUser}-prefixo`, context)
+
+                    }
 
                     socket.on('verificar-votacao', async(user) => {
 
