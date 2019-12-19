@@ -125,6 +125,12 @@ export class App {
 
                     }
 
+                    socket.on('informacao-onibus', async(bus) => {
+
+                        console.log(bus)
+                        BusVehicle.update({prefico: bus.prefico}, {$set: {bus}})
+                    })
+
                     socket.on('verificar-votacao', async(user) => {
 
                         const teste = await ProblemaReal.aggregate([
