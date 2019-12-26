@@ -23,6 +23,7 @@ class AuthController {
                     return res.json({ anonimo: true,
                         id_anonimo: uuid() });
                 }
+                console.log(req.body);
                 const user = yield this.userRepository.getUserByEmail(req.body);
                 if (user == null) {
                     return res.status(227).json(new Response_1.Response(true, "Usuario não localizado em nosso banco de dados", null));
