@@ -41,7 +41,7 @@ let User = class User extends sequelize_typescript_1.Model {
         });
     }
     generateAuthToken() {
-        return jwt.sign({ _id: this.id }, "mkt#RPC2017@", { expiresIn: "1h" });
+        return jwt.sign({ _id: this.id }, "mkt#RPC2020@", { expiresIn: "1h" });
     }
 };
 __decorate([
@@ -116,6 +116,18 @@ __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)
 ], User.prototype, "imagem", void 0);
+__decorate([
+    sequelize_typescript_1.Column,
+    __metadata("design:type", String)
+], User.prototype, "ultimo_login", void 0);
+__decorate([
+    sequelize_typescript_1.Column,
+    __metadata("design:type", Number)
+], User.prototype, "mobile_cadastro", void 0);
+__decorate([
+    sequelize_typescript_1.Column,
+    __metadata("design:type", Number)
+], User.prototype, "mobile_logado", void 0);
 __decorate([
     sequelize_typescript_1.BeforeCreate,
     __metadata("design:type", Function),

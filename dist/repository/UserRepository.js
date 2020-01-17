@@ -14,6 +14,8 @@ const Rotas_1 = require("../model/Rotas");
 const mail_1 = require("../services/mail");
 const crypto = require("crypto");
 const Favoritos_1 = require("../model/Favoritos");
+const moment = require("moment-timezone");
+let data_local = moment.tz(Date.now(), "America/Sao_Paulo").format("DD/MM/YYYY HH:mm:ss");
 let dias_semana = ['segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado', 'domingo'];
 class UserRepository {
     constructor() {
@@ -136,6 +138,9 @@ class UserRepository {
                     result[k].dataValues.dias_rota = naoseimesmo[k];
                 }
                 return result;
+            });
+            let login = { ultimo_login: data_local };
+            User_1.User.update(login, { where: { id_user: id }
             });
             return yield rotas_user;
         });

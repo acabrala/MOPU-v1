@@ -42,6 +42,7 @@ const LinhasController_1 = require("./controllers/LinhasController");
 const ProblemaReal_1 = require("./model/ProblemaReal");
 const LogsInteraction_1 = require("./model/LogsInteraction");
 const LogsInteracao_1 = require("./model/LogsInteracao");
+const BusVehicle_1 = require("./model/BusVehicle");
 exports.Passport = passport;
 exports.Socket = socketio;
 class App {
@@ -86,6 +87,23 @@ class App {
                         socket.on('votacao', (msg) => {
                             votar(msg);
                         });
+                        socket.on('onibus-prefixo', (onibus) => __awaiter(this, void 0, void 0, function* () {
+                            const onibusPrefixo = onibus.onibus.map(item => item.prefixo);
+                            onibus.onibus.map((item) => __awaiter(this, void 0, void 0, function* () {
+                                yield BusVehicle_1.default.create(item);
+                            }));
+                            const abc = yield BusVehicle_1.default.find({ prefixo: { $in: onibusPrefixo } });
+                            userBus(abc, onibus.id_user);
+                        }));
+                        function userBus(context, idUser) {
+                            return __awaiter(this, void 0, void 0, function* () {
+                                socket.emit(`${idUser}-prefixo`, context);
+                            });
+                        }
+                        socket.on('informacao-onibus', (bus) => __awaiter(this, void 0, void 0, function* () {
+                            console.log(bus);
+                            BusVehicle_1.default.update({ prefico: bus.prefico }, { $set: { bus } });
+                        }));
                         socket.on('verificar-votacao', (user) => __awaiter(this, void 0, void 0, function* () {
                             const teste = yield ProblemaReal_1.default.aggregate([
                                 {

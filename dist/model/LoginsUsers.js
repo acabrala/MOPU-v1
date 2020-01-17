@@ -10,32 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_typescript_1 = require("sequelize-typescript");
-let Mobile = class Mobile extends sequelize_typescript_1.Model {
+let LoginsUsuario = class LoginsUsuario extends sequelize_typescript_1.Model {
 };
 __decorate([
     sequelize_typescript_1.AutoIncrement,
     sequelize_typescript_1.Column({ primaryKey: true, type: sequelize_typescript_1.DataType.INTEGER }),
     __metadata("design:type", Number)
-], Mobile.prototype, "id", void 0);
+], LoginsUsuario.prototype, "id", void 0);
 __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)
-], Mobile.prototype, "id_user", void 0);
-__decorate([
-    sequelize_typescript_1.Column,
-    __metadata("design:type", Number)
-], Mobile.prototype, "stop_id", void 0);
-__decorate([
-    sequelize_typescript_1.Column,
-    __metadata("design:type", Number)
-], Mobile.prototype, "tempo", void 0);
+], LoginsUsuario.prototype, "id_usuario", void 0);
 __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)
-], Mobile.prototype, "partida", void 0);
-Mobile = __decorate([
+], LoginsUsuario.prototype, "data_login", void 0);
+__decorate([
+    sequelize_typescript_1.Column,
+    __metadata("design:type", Number)
+], LoginsUsuario.prototype, "mobile", void 0);
+LoginsUsuario = __decorate([
     sequelize_typescript_1.Table({
-        tableName: "ponto_time"
+        tableName: "logins_usuario"
     })
-], Mobile);
-exports.Mobile = Mobile;
+], LoginsUsuario);
+exports.LoginsUsuario = LoginsUsuario;

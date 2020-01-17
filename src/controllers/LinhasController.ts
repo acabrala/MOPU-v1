@@ -12,7 +12,7 @@ export class LinhasController {
     consultarlinhas = async (req,res) => {
         const linhas = await this.linhasRepository.getLinhas();
 
-	const teste = {'linhas': linhas, versao_server: linhas[0].versao.trim()}
+	const teste = {'linhas': linhas, versao_server: "v2"}
 
         return res.status(201).json(new Response(false, "deu bom", teste))
     }
