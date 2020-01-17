@@ -74,6 +74,9 @@ export class User extends Model<User> {
     @Column
     mobile_logado:number;
 
+    @Column
+    notification_token:string;
+
     @BeforeCreate
     static async hashPassword(instance: User) {
         const salt = await bcrypt.genSalt(10);

@@ -10,7 +10,6 @@ export class AvatarController {
     }
 
 
-
     todosAvatar = async (req, res) => {
         try {
             const avatares = await this.avatarRepository.getAvatar(req.body)
