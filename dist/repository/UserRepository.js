@@ -15,7 +15,11 @@ const mail_1 = require("../services/mail");
 const crypto = require("crypto");
 const Favoritos_1 = require("../model/Favoritos");
 const moment = require("moment-timezone");
+<<<<<<< HEAD
 let data_local = moment.tz(Date.now(), "America/Sao_Paulo").format("DD/MM/YYYY HH:mm:ss");
+=======
+let data_local = moment.tz(Date.now(), "America/Sao_Paulo").format("DD-MM-YYYY HH:mm:ss");
+>>>>>>> 993edeb97a3aef5f7b12563a66e4d835ef4da51b
 let dias_semana = ['segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado', 'domingo'];
 class UserRepository {
     constructor() {
