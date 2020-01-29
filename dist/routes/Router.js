@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const authverify_1 = require("../middleware/authverify");
 const passport = require("passport");
 class Router {
-    constructor(authController, userController, estacaoController, estacaoAreaController, calculateRouterController, routerController, favoritosController, problemaController, mobileController, avatarController, linhasController) {
+    constructor(authController, userController, estacaoController, estacaoAreaController, calculateRouterController, routerController, favoritosController, problemaController, mobileController, avatarController, linhasController, tempoPushController) {
         this.BASE_URL = "/api/v1";
         this.AUTH_URL = this.BASE_URL + "/auth";
         this.FACEBOOK_AUTH_URL = this.BASE_URL + "/auth/facebook";
@@ -32,6 +32,7 @@ class Router {
         this.DESCER_AVATAR = this.BASE_URL + "/avatares";
         this.DESCER_LINHAS = this.BASE_URL + "/linhas";
         this.PROBLEMAS_USER = this.BASE_URL + "/incidentes/usuario";
+        this.TEMPO_PUSH = this.BASE_URL + "/tempo/push";
         this.authController = authController;
         this.userController = userController;
         this.estacaoController = estacaoController;
@@ -43,6 +44,7 @@ class Router {
         this.mobileController = mobileController;
         this.avatarController = avatarController;
         this.linhasController = linhasController;
+        this.tempoPushController = tempoPushController;
     }
     startWith(app) {
         //Autenticação Email e Senha e Redes Sociais
@@ -84,6 +86,8 @@ class Router {
         app.route(this.DESCER_AVATAR).get(this.avatarController.todosAvatar);
         //Linhas
         app.route(this.DESCER_LINHAS).get(this.linhasController.consultarlinhas);
+        //TimerPush
+        app.route(this.TEMPO_PUSH).post(this.tempoPushController.salvarTempo);
     }
 }
 exports.default = Router;

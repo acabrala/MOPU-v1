@@ -34,6 +34,8 @@ import Interaction from './model/LogsInteraction';
 import { LogsInteracao } from './model/LogsInteracao';
 import { assertValidSDL } from 'graphql/validation/validate';
 import BusVehicle from './model/BusVehicle';
+import { TempoPushController } from './controllers/TempoPushController';
+import { TempoPushRepository } from './repository/TempoPushRepository';
 
 
 export const Passport = passport;
@@ -68,7 +70,6 @@ export class App {
                 console.log('Running server on port %s', this.port);
                 this.io.on('connect', (socket: any) => {
 
-
                     const changeStream = ProblemaReal.watch();
                     changeStream.on('change', next => {
                         let data_incidente = next.fullDocument.horario_ocorrencia
@@ -91,7 +92,6 @@ export class App {
                             }
                         ])
 
-
                         socket.emit('incidentes-geral', teste)
                     }
 
@@ -101,37 +101,34 @@ export class App {
 
                     })
 
-                    socket.on('onibus-prefixo', async(onibus) => {
+                    socket.on('onibus-prefixo', async (onibus) => {
 
                         const onibusPrefixo = onibus.onibus.map(item => item.prefixo);
-                        
+
                         onibus.onibus.map(async item => {
 
-                           
-                           await BusVehicle.create(item)
+                            await BusVehicle.create(item)
 
-                          
                         });
 
-                        const abc = await BusVehicle.find({prefixo: { $in :onibusPrefixo}})
+                        const abc = await BusVehicle.find({ prefixo: { $in: onibusPrefixo } })
 
                         userBus(abc, onibus.id_user)
 
-                   
-
                     });
-                    async function userBus(context, idUser){
+
+                    async function userBus(context, idUser) {
                         socket.emit(`${idUser}-prefixo`, context)
 
                     }
 
-                    socket.on('informacao-onibus', async(bus) => {
+                    socket.on('informacao-onibus', async (bus) => {
 
                         console.log(bus)
-                        BusVehicle.update({prefico: bus.prefico}, {$set: {bus}})
+                        BusVehicle.update({ prefico: bus.prefico }, { $set: { bus } })
                     })
 
-                    socket.on('verificar-votacao', async(user) => {
+                    socket.on('verificar-votacao', async (user) => {
 
                         const teste = await ProblemaReal.aggregate([
                             {
@@ -145,8 +142,8 @@ export class App {
                             }
                         ])
 
-                       const ids =  teste.map(item => {
-                           return item._id
+                        const ids = teste.map(item => {
+                            return item._id
                         })
 
                         vaaai(user, ids)
@@ -154,11 +151,9 @@ export class App {
                         //socket.emit(user, parameters)
                     });
 
-
                     async function vaaai(id, ids) {
 
                         let teste2 = await Interaction.find({ id_usuario: { $in: [id] }, id_incidente: { $in: ids } })
-
 
                         socket.emit(id, teste2)
 
@@ -226,7 +221,8 @@ export class App {
         const favoritosRepository = new FavoritosRepository();
         const mobileRepository = new MobileRepository();
         const avatarRepository = new AvatarRepository();
-        const linhasRepository = new LinhasRepository()
+        const linhasRepository = new LinhasRepository();
+        const tempoPushRepository = new TempoPushRepository();
 
         new Router(new AuthController(userRepository),
             new UserController(userRepository),
@@ -239,7 +235,8 @@ export class App {
             new ProblemaController(problemaRepository),
             new MobileController(mobileRepository),
             new AvatarController(avatarRepository),
-            new LinhasController(linhasRepository))
+            new LinhasController(linhasRepository),
+            new TempoPushController(tempoPushRepository))
             .startWith(this.app);
     }
 

@@ -4,15 +4,14 @@ import { EstacaoController } from "../controllers/EstacaoController";
 import { EstacaoAreaController } from "../controllers/EstacaoAreaController";
 import { CalculateRouterController } from '../controllers/CalculateRouterController';
 import authVerify from '../middleware/authverify';
-import { Request, Response } from 'express'
 import * as passport from 'passport';
-import request from "request";
 import { RouterUserController } from "../controllers/RouterUserController";
 import { FavoritosController } from "../controllers/FavoritosController";
 import { ProblemaController } from "../controllers/ProblemaController";
 import { MobileController } from "../controllers/MobileController";
 import { AvatarController } from "../controllers/AvatarController";
 import { LinhasController } from "../controllers/LinhasController";
+import { TempoPushController } from "../controllers/TempoPushController";
 
 export default class Router {
 
@@ -27,6 +26,7 @@ export default class Router {
     private mobileController: MobileController;
     private avatarController: AvatarController;
     private linhasController: LinhasController;
+    private tempoPushController: TempoPushController;
 
     private BASE_URL: string = "/api/v1";
     private AUTH_URL: string = this.BASE_URL + "/auth";
@@ -56,12 +56,13 @@ export default class Router {
     private DESCER_AVATAR:string = this.BASE_URL + "/avatares";
     private DESCER_LINHAS:string = this.BASE_URL + "/linhas";
     private PROBLEMAS_USER:string = this.BASE_URL + "/incidentes/usuario";
+    private TEMPO_PUSH:string = this.BASE_URL + "/tempo/push";
 
     constructor(authController: AuthController, userController: UserController,
         estacaoController: EstacaoController, estacaoAreaController: EstacaoAreaController,
         calculateRouterController: CalculateRouterController, routerController: RouterUserController,
         favoritosController: FavoritosController, problemaController: ProblemaController, mobileController: MobileController,
-        avatarController: AvatarController, linhasController: LinhasController) {
+        avatarController: AvatarController, linhasController: LinhasController, tempoPushController: TempoPushController) {
         this.authController = authController;
         this.userController = userController;
         this.estacaoController = estacaoController;
@@ -73,6 +74,7 @@ export default class Router {
         this.mobileController = mobileController;
         this.avatarController = avatarController
         this.linhasController = linhasController;
+        this.tempoPushController = tempoPushController
     }
 
     public startWith(app) {
@@ -128,5 +130,8 @@ export default class Router {
 
         //Linhas
         app.route(this.DESCER_LINHAS).get(this.linhasController.consultarlinhas);
+        
+        //TimerPush
+        app.route(this.TEMPO_PUSH).post(this.tempoPushController.salvarTempo)
     }
 }

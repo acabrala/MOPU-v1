@@ -43,6 +43,8 @@ const ProblemaReal_1 = require("./model/ProblemaReal");
 const LogsInteraction_1 = require("./model/LogsInteraction");
 const LogsInteracao_1 = require("./model/LogsInteracao");
 const BusVehicle_1 = require("./model/BusVehicle");
+const TempoPushController_1 = require("./controllers/TempoPushController");
+const TempoPushRepository_1 = require("./repository/TempoPushRepository");
 exports.Passport = passport;
 exports.Socket = socketio;
 class App {
@@ -182,7 +184,8 @@ class App {
         const mobileRepository = new MobileRepository_1.MobileRepository();
         const avatarRepository = new AvatarRepository_1.AvatarRepository();
         const linhasRepository = new LinhasRepository_1.LinhasRepository();
-        new Router_1.default(new AuthController_1.AuthController(userRepository), new UserController_1.UserController(userRepository), new EstacaoController_1.EstacaoController(estacaoRepository), new EstacaoAreaController_1.EstacaoAreaController(estacaoAreaRepository), new CalculateRouterController_1.CalculateRouterController(calculateRouterRepository, linhasTrilhosRepository), new RouterUserController_1.RouterUserController(routerRepository), new FavoritosController_1.FavoritosController(favoritosRepository), new ProblemaController_1.ProblemaController(problemaRepository), new MobileController_1.MobileController(mobileRepository), new AvatarController_1.AvatarController(avatarRepository), new LinhasController_1.LinhasController(linhasRepository))
+        const tempoPushRepository = new TempoPushRepository_1.TempoPushRepository();
+        new Router_1.default(new AuthController_1.AuthController(userRepository), new UserController_1.UserController(userRepository), new EstacaoController_1.EstacaoController(estacaoRepository), new EstacaoAreaController_1.EstacaoAreaController(estacaoAreaRepository), new CalculateRouterController_1.CalculateRouterController(calculateRouterRepository, linhasTrilhosRepository), new RouterUserController_1.RouterUserController(routerRepository), new FavoritosController_1.FavoritosController(favoritosRepository), new ProblemaController_1.ProblemaController(problemaRepository), new MobileController_1.MobileController(mobileRepository), new AvatarController_1.AvatarController(avatarRepository), new LinhasController_1.LinhasController(linhasRepository), new TempoPushController_1.TempoPushController(tempoPushRepository))
             .startWith(this.app);
     }
     initializeStrategies() {
